@@ -3,15 +3,14 @@ using Cysharp.Threading.Tasks;
 
 namespace Project.Scripts.Game.Impl
 {
-    public class BootstrapState : IGameState
+    public class BaseState : IGameState
     {
-        
-        public UniTask Enter(CancellationToken cancellationToken)
+        public virtual UniTask Enter(CancellationToken cancellationToken)
         {
             return UniTask.CompletedTask;
         }
 
-        public UniTask Exit(CancellationToken cancellationToken)
+        public virtual UniTask Exit(CancellationToken cancellationToken)
         {
             return UniTask.CompletedTask;
         }
