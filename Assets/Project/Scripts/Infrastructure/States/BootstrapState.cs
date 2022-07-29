@@ -5,16 +5,13 @@ namespace Project.Scripts.Game.Impl
 {
     public class BootstrapState : BaseState
     {
-        private readonly IGameStateMachine _gameStateMachine;
-
-        public BootstrapState(IGameStateMachine gameStateMachine)
+        protected BootstrapState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
         {
-            _gameStateMachine = gameStateMachine;
         }
 
         public override UniTask Enter(CancellationToken cancellationToken)
         {
-            return _gameStateMachine.Enter<LoadingState>(cancellationToken);
+            return GameStateMachine.Enter<LoadingState>(cancellationToken);
         }
     }
 }

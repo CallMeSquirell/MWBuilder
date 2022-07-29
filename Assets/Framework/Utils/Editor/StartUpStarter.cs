@@ -39,7 +39,7 @@ namespace Framework.Utils.Editor
             if(!PlayFromFirstScene)
                 return;
             
-            SceneManager.LoadScene(SceneNames.BootStrapScene);
+            SceneManager.LoadScene(SceneNames.BootStrapScene.Name);
         }
  
         private static void ShowNotifyOrLog(string msg)

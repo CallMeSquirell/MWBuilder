@@ -11,5 +11,10 @@ namespace Project.Scripts.Game
         {
             Container.Inject(_bootstrapper);
         }
+
+        public override void InstallBindings()
+        {
+         
+        }
     }
 }

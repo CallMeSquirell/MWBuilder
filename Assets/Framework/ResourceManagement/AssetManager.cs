@@ -24,6 +24,11 @@ namespace Framework.ResourceManagement
             return component;
         }
 
+        public UniTask LoadScene(string path)
+        {
+            return Addressables.LoadSceneAsync(path).ToUniTask();
+        }
+
         public void Release<T>(T obj)
         {
             Addressables.Release(obj);

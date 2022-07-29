@@ -20,6 +20,7 @@ namespace Project.Scripts.Application.StateMachine
             await CloseCurrentState(cancellationToken);
             await EnterState<T>(cancellationToken);
         }
+        
 
         private async UniTask EnterState<T>(CancellationToken cancellationToken) where T : class, IGameState
         {

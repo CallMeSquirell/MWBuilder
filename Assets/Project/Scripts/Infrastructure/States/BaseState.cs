@@ -5,6 +5,13 @@ namespace Project.Scripts.Game.Impl
 {
     public class BaseState : IGameState
     {
+        protected IGameStateMachine GameStateMachine { get; }
+
+        protected BaseState(IGameStateMachine gameStateMachine)
+        {
+            GameStateMachine = gameStateMachine;
+        }
+        
         public virtual UniTask Enter(CancellationToken cancellationToken)
         {
             return UniTask.CompletedTask;

@@ -1,10 +1,11 @@
+using Project.Scripts.Core;
 using Project.Scripts.Game.Impl;
 using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts.Game
 {
-   public class Bootstrapper : MonoBehaviour, IInitializable
+   public class Bootstrapper : MonoBehaviour
    {
       private IGameStateMachine _gameStateMachine;
 
@@ -14,7 +15,7 @@ namespace Project.Scripts.Game
          _gameStateMachine = gameStateMachine;
       }
 
-      public void Initialize()
+      private void Start()
       {
          _gameStateMachine.Enter<BootstrapState>();
       }
