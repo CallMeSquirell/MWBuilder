@@ -1,7 +1,7 @@
-using Framework.Utils.Extensions;
 using UnityEngine;
+using Utils.Framework.Utils.Extensions;
 
-namespace Framework.Utils.Singleton
+namespace Utils.Framework.Utils.Singleton
 {
     public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {

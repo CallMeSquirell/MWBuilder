@@ -1,4 +1,4 @@
-﻿using Framework.Core;
+﻿using Core.Framework.Core;
 using UnityEngine.EventSystems;
 
 namespace Framework.UI.Animations.Scripts.Core

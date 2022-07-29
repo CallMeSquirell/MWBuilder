@@ -1,4 +1,4 @@
-using Framework.Core;
+using Core.Framework.Core;
 using Project.Scripts.Core.Configs;
 using UnityEngine;
 

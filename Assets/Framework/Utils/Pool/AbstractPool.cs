@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Framework.Utils.Pool
+namespace Utils.Framework.Utils.Pool
 {
     public abstract class AbstractPool<T> : IPool<T> where T : IPoolItem
     {

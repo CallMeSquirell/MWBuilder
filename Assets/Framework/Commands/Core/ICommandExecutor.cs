@@ -1,7 +1,7 @@
+using Commands.Framework.Commands.BaseCommands;
 using Cysharp.Threading.Tasks;
-using Framework.Commands.BaseCommands;
 
-namespace Framework.Commands.Core
+namespace Commands.Framework.Commands.Core
 {
     public interface ICommandExecutor
     {

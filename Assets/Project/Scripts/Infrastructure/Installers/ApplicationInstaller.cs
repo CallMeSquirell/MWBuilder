@@ -1,7 +1,7 @@
-﻿using Framework.ResourceManagement;
-using Framework.UI.Managers.Manager;
-using Framework.UI.MVP.Installers;
-using Project.Scripts.Application.StateMachine;
+﻿using AssetManagement.Framework.ResourceManagement.Installers;
+using Commands.Framework.Commands.Installers;
+using GameStateMachine.Framework.GameStateMachine;
+using UI.Framework.UI.Installers;
 using Zenject;
 
 namespace Project.Scripts.Game.Installers
@@ -10,21 +10,15 @@ namespace Project.Scripts.Game.Installers
     {
         public override void InstallBindings()
         {
-            InstallCore();
             InstallersSetUp();
         }
 
         private void InstallersSetUp()
         {
             Container.Install<ViewManagementInstaller>();
-        }
-
-        private void InstallCore()
-        {
-            Container.Bind<IGameStateMachine>().To<ApplicationStateMachine>().AsSingle();
-            Container.Bind<IAssetManager>().To<AssetManager>().AsSingle();
-            Container.Bind<IConfigService>().To<ConfigService>().AsSingle();
-            Container.Bind<IUIManager>().To<UIManager>().AsSingle();
+            Container.Install<CommandInstaller>();
+            Container.Install<ResourceManagementInstaller>();
+            Container.Install<GameStateMachineInstaller>();
         }
     }
 }

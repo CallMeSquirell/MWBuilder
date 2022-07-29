@@ -1,4 +1,4 @@
-namespace Framework.Utils.Pool
+namespace Utils.Framework.Utils.Pool
 {
     public class PoolItem : IPoolItem
     {

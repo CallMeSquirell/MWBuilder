@@ -1,6 +1,6 @@
-using Framework.Commands.BaseCommands;
+using Commands.Framework.Commands.BaseCommands;
 
-namespace Framework.Commands.Core
+namespace Commands.Framework.Commands.Core
 {
     public interface ICommandFactory
     {

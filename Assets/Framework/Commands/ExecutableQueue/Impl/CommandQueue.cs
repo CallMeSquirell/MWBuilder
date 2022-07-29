@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.Commands.Core;
+using Commands.Framework.Commands.Core.Impl;
 using Cysharp.Threading.Tasks;
-using Framework.Commands.BaseCommands;
-using Framework.Commands.Core;
-using Framework.Commands.Core.Impl;
 
-namespace Framework.Commands.ExecutableQueue.Impl
+namespace Commands.Framework.Commands.ExecutableQueue.Impl
 {
     public class PriorityComparer : IComparer<int>
     {
@@ -37,7 +37,7 @@ namespace Framework.Commands.ExecutableQueue.Impl
 
 
         public void Add<T>(ICommandPayload payload, int priority, CancellationToken cancellationToken = default)
-            where T : BaseCommand, IExecutableCommand<ICommandPayload>
+            where T : Command, IExecutableCommand<ICommandPayload>
         {
             var command = _commandFactory.Create(new CommandInfo(typeof(T)));
             var queuedCommand = new QueuedCommand(command, payload);
@@ -48,7 +48,7 @@ namespace Framework.Commands.ExecutableQueue.Impl
             }
         }
 
-        public void Add<T>(int priority, CancellationToken cancellationToken = default) where T : BaseCommand, IExecutableCommand
+        public void Add<T>(int priority, CancellationToken cancellationToken = default) where T : Command, IExecutableCommand
         {
             var command = _commandFactory.Create(new CommandInfo(typeof(T)));
             var queuedCommand = new QueuedCommand(command);

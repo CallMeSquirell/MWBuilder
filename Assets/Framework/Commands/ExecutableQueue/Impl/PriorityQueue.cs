@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ModestTree;
 
-namespace Framework.Commands.ExecutableQueue.Impl
+namespace Commands.Framework.Commands.ExecutableQueue.Impl
 {
     public class PriorityQueue<TPriority, TValue> : IPriorityQueue<TPriority, TValue>, IDisposable where TValue : IDisposable
     {

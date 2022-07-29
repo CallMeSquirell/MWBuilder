@@ -1,6 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using UI.Framework.UI.Animations;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Framework.Utils.Pool
+namespace Utils.Framework.Utils.Pool
 {
     public class DefaultMonoBehaviourPool<T> : AbstractPool<T> where T : ObjectPoolItem
     {

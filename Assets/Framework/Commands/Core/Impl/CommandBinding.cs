@@ -1,6 +1,6 @@
-using Framework.Commands.BaseCommands;
+using Commands.Framework.Commands.BaseCommands;
 
-namespace Framework.Commands.Core.Impl
+namespace Commands.Framework.Commands.Core.Impl
 {
     public class CommandBinding : ICommandBinding
     {

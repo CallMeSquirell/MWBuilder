@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Framework.Commands.ExecutableQueue
+namespace Commands.Framework.Commands.ExecutableQueue
 {
     public interface IQueuedCommand : IDisposable
     { 

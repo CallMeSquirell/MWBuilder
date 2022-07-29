@@ -1,8 +1,8 @@
+using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.Commands.Exception;
 using Cysharp.Threading.Tasks;
-using Framework.Commands.BaseCommands;
-using Framework.Commands.Exception;
 
-namespace Framework.Commands.Core.Impl
+namespace Commands.Framework.Commands.Core.Impl
 {
     public class CommandExecutor : ICommandExecutor
     {
@@ -21,7 +21,6 @@ namespace Framework.Commands.Core.Impl
             if (_commandBinder.TryGetBind<T>(out ICommandBinding binding) && 
                 _commandFactory.Create(binding.Info) is T executableCommand)
             {
-                ;
                 return executableCommand.Execute();
             }
             throw new NoSuchCommandException();

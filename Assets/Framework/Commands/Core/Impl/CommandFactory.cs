@@ -1,7 +1,7 @@
-using Framework.Commands.BaseCommands;
+using Commands.Framework.Commands.BaseCommands;
 using Zenject;
 
-namespace Framework.Commands.Core.Impl
+namespace Commands.Framework.Commands.Core.Impl
 {
     public class CommandFactory : ICommandFactory
     {

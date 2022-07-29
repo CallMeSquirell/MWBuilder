@@ -1,8 +1,8 @@
-﻿using Framework.ResourceManagement;
+﻿using AssetManagement.Framework.ResourceManagement.Configs;
 using UnityEngine;
 using Zenject;
 
-namespace Framework.Core
+namespace Core.Framework.Core
 {
     public class BaseView<T> : MonoBehaviour
     {

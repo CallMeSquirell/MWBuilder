@@ -1,3 +1,4 @@
+using GameStateMachine.Framework.GameStateMachine;
 using Project.Scripts.Core;
 using Project.Scripts.Game.Impl;
 using UnityEngine;

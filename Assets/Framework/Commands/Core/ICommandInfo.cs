@@ -1,6 +1,6 @@
 using System;
 
-namespace Framework.Commands.Core
+namespace Commands.Framework.Commands.Core
 {
     public interface ICommandInfo
     {

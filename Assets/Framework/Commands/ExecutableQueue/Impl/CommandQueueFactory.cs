@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Framework.Commands.ExecutableQueue.Impl
+namespace Commands.Framework.Commands.ExecutableQueue.Impl
 {
     public class CommandQueueFactory : ICommandQueueFactory
     {

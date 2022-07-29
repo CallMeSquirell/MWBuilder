@@ -1,17 +1,26 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
+using GameStateMachine.Framework.GameStateMachine;
 
 namespace Project.Scripts.Game.Impl
 {
-    public class BootstrapState : BaseState
+    public class BootstrapState : IGameState
     {
-        protected BootstrapState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
+        private readonly IGameStateMachine _gameStateMachine;
+
+        protected BootstrapState(IGameStateMachine gameStateMachine)
         {
+            _gameStateMachine = gameStateMachine;
         }
 
-        public override UniTask Enter(CancellationToken cancellationToken)
+        public UniTask Enter(CancellationToken cancellationToken)
         {
-            return GameStateMachine.Enter<LoadingState>(cancellationToken);
+            return _gameStateMachine.Enter<LoadingState>(cancellationToken);
+        }
+
+        public UniTask Exit(CancellationToken cancellationToken)
+        {
+            return UniTask.CompletedTask;
         }
     }
 }

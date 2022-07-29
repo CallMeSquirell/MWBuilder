@@ -1,23 +1,32 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using Framework.UI.Managers.Manager;
+using GameStateMachine.Framework.GameStateMachine;
+using Project.Scripts.Infrastructure.States;
+using UI.Framework.UI.Managers;
 
 namespace Project.Scripts.Game.Impl
 {
-    public class LoadingState : BaseState
+    public class LoadingState : IGameState
     {
+        private readonly IGameStateMachine _gameStateMachine;
         private readonly IUIManager _uiManager;
 
-        protected LoadingState(IGameStateMachine gameStateMachine, 
-            IUIManager uiManager) : base(gameStateMachine)
+        public LoadingState(IGameStateMachine gameStateMachine, 
+            IUIManager uiManager)
         {
+            _gameStateMachine = gameStateMachine;
             _uiManager = uiManager;
         }
 
-        public override async UniTask Enter(CancellationToken cancellationToken)
+        public async UniTask Enter(CancellationToken cancellationToken)
         {
             await _uiManager.Initialise(cancellationToken);
-            await GameStateMachine.Enter<MetaState>(cancellationToken);
+            await _gameStateMachine.Enter<MetaState>(new MetaContext(), cancellationToken);
+        }
+
+        public UniTask Exit(CancellationToken cancellationToken)
+        {
+            return UniTask.CompletedTask;
         }
     }
 }

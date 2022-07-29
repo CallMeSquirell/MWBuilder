@@ -1,4 +1,4 @@
-namespace Framework.Commands.ExecutableQueue
+namespace Commands.Framework.Commands.ExecutableQueue
 {
     public interface IPriorityQueue<TPriority, TValue>
     {

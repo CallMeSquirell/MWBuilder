@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Framework.Utils.Extensions
+namespace Utils.Framework.Utils.Extensions
 {
     public static class ColorExtenstion
     {

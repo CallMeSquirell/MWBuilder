@@ -1,6 +1,6 @@
 {
     "name": "UI",
-    "rootNamespace": "",
+    "rootNamespace": "UI",
     "references": [
         "GUID:ea808a1d709e65948b5896ed2cff18f1",
         "GUID:f51ebe6a0ceec4240a699833d6309b23",

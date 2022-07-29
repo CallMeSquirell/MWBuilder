@@ -1,8 +1,8 @@
-using Framework.Utils.Extensions;
-using Framework.Utils.Pool;
 using UnityEngine;
+using Utils.Framework.Utils.Extensions;
+using Utils.Framework.Utils.Pool;
 
-namespace Framework.Utils.UI.Lable
+namespace Utils.Framework.Utils.UI.Lable
 {
     [RequireComponent(typeof(RectTransform))]
     public class LeadingLabele : ObjectPoolItem

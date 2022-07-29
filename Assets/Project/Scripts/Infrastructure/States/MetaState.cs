@@ -1,29 +1,30 @@
 ﻿using System.Threading;
+using AssetManagement.Framework.ResourceManagement.Assets;
 using Cysharp.Threading.Tasks;
-using Framework.ResourceManagement;
-using Framework.Utils.Editor;
-using UnityEngine.SceneManagement;
+using GameStateMachine.Framework.GameStateMachine;
+using Utils.Framework.Utils.Editor;
 
-namespace Project.Scripts.Game.Impl
+namespace Project.Scripts.Infrastructure.States
 {
-    public class MetaState : BaseState
+    public class MetaState : IGameState
     {
+        private readonly MetaContext _metaContext;
         private readonly IAssetManager _assetManager;
 
-        public MetaState(IGameStateMachine gameStateMachine, 
-            IAssetManager assetManager) : base(gameStateMachine)
+        public MetaState(MetaContext metaContext, IAssetManager assetManager)
         {
+            _metaContext = metaContext;
             _assetManager = assetManager;
         }
 
-        public override async UniTask Enter(CancellationToken cancellationToken)
+        public async UniTask Enter(CancellationToken cancellationToken)
         {
-            await SceneManager.LoadSceneAsync(SceneNames.MetaScene.Path);
+            await _assetManager.LoadScene(SceneNames.MetaScene.Path);
         }
 
-        public override UniTask Exit(CancellationToken cancellationToken)
+        public UniTask Exit(CancellationToken cancellationToken)
         {
-            return base.Exit(cancellationToken);
+            return UniTask.CompletedTask;
         }
     }
 }

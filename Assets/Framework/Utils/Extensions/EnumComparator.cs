@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Framework.Utils.Extensions
+namespace Utils.Framework.Utils.Extensions
 {
     public class EnumComparator<T> : IEqualityComparer<T>
     {

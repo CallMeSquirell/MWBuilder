@@ -1,4 +1,4 @@
-using Framework.Core;
+using Core.Framework.Core;
 
 namespace Project.Scripts.Core
 {
