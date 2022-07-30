@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using GameStateMachine.Framework.GameStateMachine;
 
-namespace Project.Scripts.Game.Impl
+namespace Project.Scripts.Infrastructure.States
 {
     public class BootstrapState : IGameState
     {

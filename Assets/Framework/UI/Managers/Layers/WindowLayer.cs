@@ -94,9 +94,7 @@ namespace UI.Framework.UI.Managers.Layers
             if (_placedView != null)
             {
                 _isClosing = true;
-                var task = _placedView.Close(false, cancellationToken);
-                _placedViewData.InvokableListener.CloseSource.TrySetResult();
-                await task;
+                await _placedView.Close(false, cancellationToken);
                 _isClosing = false;
                 Cleared?.Invoke(this);
             }
@@ -116,6 +114,7 @@ namespace UI.Framework.UI.Managers.Layers
             _placedView.Closed -= OnViewClosed;
             _presenterProvider.DisposePresenterFor(_placedView);
             Destroy(_placedView.gameObject);
+            _placedViewData.InvokableListener.CloseSource.TrySetResult();
             _placedViewData = null;
             _placedView = null;
         }

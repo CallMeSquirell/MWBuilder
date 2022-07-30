@@ -1,10 +1,11 @@
 ﻿using AssetManagement.Framework.ResourceManagement.Installers;
 using Commands.Framework.Commands.Installers;
 using GameStateMachine.Framework.GameStateMachine;
+using Project.Scripts.UI.Meta;
 using UI.Framework.UI.Installers;
 using Zenject;
 
-namespace Project.Scripts.Game.Installers
+namespace Project.Scripts.Infrastructure.Installers
 {
     public class ApplicationInstaller : MonoInstaller
     {
@@ -19,6 +20,7 @@ namespace Project.Scripts.Game.Installers
             Container.Install<CommandInstaller>();
             Container.Install<ResourceManagementInstaller>();
             Container.Install<GameStateMachineInstaller>();
+            Container.Install<MetaUIInstaller>();
         }
     }
 }

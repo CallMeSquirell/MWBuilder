@@ -17,9 +17,9 @@ namespace UI.Framework.UI.DI.Binding
             _instantiator = instantiator;
         }
 
-        public void To<P>() where P : IPresenter<IScreenBaseView>
+        public void To<TPresenter>() where TPresenter : IPresenter<IScreenBaseView>
         {
-            _presenterType = typeof(P);
+            _presenterType = typeof(TPresenter);
         }
 
         public void CreatePresenter(IScreenBaseView screenBaseView, object payload = null)

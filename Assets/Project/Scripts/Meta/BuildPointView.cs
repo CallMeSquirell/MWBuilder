@@ -1,7 +1,7 @@
 ﻿using Core.Framework.Core;
 using UnityEngine.EventSystems;
 
-namespace Framework.UI.Animations.Scripts.Core
+namespace Project.Scripts.Meta
 {
     public class BuildPointView : BaseView<BuildPointView>, IPointerClickHandler, IPointerUpHandler, IPointerDownHandler
     {

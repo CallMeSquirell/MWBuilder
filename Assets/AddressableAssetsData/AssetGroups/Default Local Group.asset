@@ -17,10 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 937c45c715518b94a9e6a88f1e1c109b
   m_SerializeEntries:
-  - m_GUID: a14480c049e5a4b44b35e0b8b1ed117c
-    m_Address: UIRoot
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: d0efef8283d074f0899f1c27636a01a6
     m_Address: MetaScene
     m_ReadOnly: 0

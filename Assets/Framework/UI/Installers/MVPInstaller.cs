@@ -1,14 +1,17 @@
+using Commands.Framework.Commands.Core;
 using UI.Framework.UI.DI.Binding;
 
-namespace UI.Framework.UI.Installers
+namespace Utils.Framework.Utils.Installers
 {
     public abstract class MVPInstaller : Zenject.Installer
     {
         private readonly IPresenterContainer _presenterContainer;
+        private readonly ICommandBinder _commandBinder;
 
-        protected MVPInstaller(IPresenterContainer presenterContainer)
+        protected MVPInstaller(IPresenterContainer presenterContainer, ICommandBinder commandBinder)
         {
             _presenterContainer = presenterContainer;
+            _commandBinder = commandBinder;
         }
 
         public sealed override void InstallBindings()
@@ -18,6 +21,7 @@ namespace UI.Framework.UI.Installers
             InstallModels();
             InstallWatchers();
             InstallPresenters(_presenterContainer);
+            InstallCommands(_commandBinder);
         }
 
         protected virtual void InstallServices()
@@ -36,6 +40,11 @@ namespace UI.Framework.UI.Installers
         }
 
         protected virtual void InstallPresenters(IPresenterContainer presenterContainer)
+        {
+            
+        }
+        
+        protected virtual void InstallCommands(ICommandBinder commandBinder)
         {
             
         }

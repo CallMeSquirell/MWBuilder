@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Game
+namespace Project.Scripts.Infrastructure.Installers
 {
     public class BootStrapInstaller : MonoInstaller, IInitializable
     {

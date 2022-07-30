@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using GameStateMachine.Framework.GameStateMachine;
-using Project.Scripts.Infrastructure.States;
+using Project.Scripts.Infrastructure.Data;
 using UI.Framework.UI.Managers;
 
-namespace Project.Scripts.Game.Impl
+namespace Project.Scripts.Infrastructure.States
 {
     public class LoadingState : IGameState
     {

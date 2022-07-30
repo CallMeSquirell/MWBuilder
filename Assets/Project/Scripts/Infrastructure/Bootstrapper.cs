@@ -1,10 +1,9 @@
 using GameStateMachine.Framework.GameStateMachine;
-using Project.Scripts.Core;
-using Project.Scripts.Game.Impl;
+using Project.Scripts.Infrastructure.States;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Game
+namespace Project.Scripts.Infrastructure
 {
    public class Bootstrapper : MonoBehaviour
    {

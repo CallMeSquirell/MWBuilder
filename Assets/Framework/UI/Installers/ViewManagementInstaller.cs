@@ -2,6 +2,7 @@ using UI.Framework.UI.DI;
 using UI.Framework.UI.DI.Binding;
 using UI.Framework.UI.DI.Provider;
 using UI.Framework.UI.Managers;
+using Utils.Framework.Utils.Installers;
 using Zenject;
 
 namespace UI.Framework.UI.Installers

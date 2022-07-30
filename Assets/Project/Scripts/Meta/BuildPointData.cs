@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Framework.UI.Animations.Scripts.Core
+namespace Project.Scripts.Meta
 {
     public class BuildPointData
     {
