@@ -1,6 +1,6 @@
-﻿using Commands.Framework.Commands.Core;
-using UI.Framework.UI.DI.Binding;
-using Utils.Framework.Utils.Installers;
+﻿using Commands.Framework.Core;
+using UI.Framework.DI.Binding;
+using UI.Framework.Installers;
 
 namespace Project.Scripts.UI.Meta
 {

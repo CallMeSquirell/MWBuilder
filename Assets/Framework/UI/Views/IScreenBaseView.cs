@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace UI.Framework.UI.Views
+namespace UI.Framework.Views
 {
     public interface IScreenBaseView
     {

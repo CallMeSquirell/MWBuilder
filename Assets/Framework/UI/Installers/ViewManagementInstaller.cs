@@ -1,11 +1,10 @@
-using UI.Framework.UI.DI;
-using UI.Framework.UI.DI.Binding;
-using UI.Framework.UI.DI.Provider;
-using UI.Framework.UI.Managers;
-using Utils.Framework.Utils.Installers;
+using UI.Framework.DI;
+using UI.Framework.DI.Binding;
+using UI.Framework.DI.Provider;
+using UI.Framework.Managers;
 using Zenject;
 
-namespace UI.Framework.UI.Installers
+namespace UI.Framework.Installers
 {
     public class ViewManagementInstaller : Installer
     {

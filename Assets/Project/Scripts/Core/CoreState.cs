@@ -1,11 +1,11 @@
 ﻿using System.Threading;
-using AssetManagement.Framework.ResourceManagement.Assets;
+using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
-using GameStateMachine.Framework.GameStateMachine;
+using GameStateMachine.Framework;
 using Project.Scripts.Constants;
 using Project.Scripts.Infrastructure.Data;
-using UI.Framework.UI.Managers;
-using Utils.Framework.Utils.Editor;
+using UI.Framework.Managers;
+using Utils.Framework.Editor;
 
 namespace Project.Scripts.Infrastructure.States
 {

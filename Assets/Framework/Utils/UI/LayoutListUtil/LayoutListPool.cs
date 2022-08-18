@@ -1,8 +1,8 @@
 using UnityEngine;
-using Utils.Framework.Utils.Pool;
+using Utils.Framework.Pool;
 using Zenject;
 
-namespace Utils.Framework.Utils.UI.LayoutListUtil
+namespace Utils.Framework.UI.LayoutListUtil
 {
     public class LayoutListPool<T> : AbstractPool<T> where T : ObjectPoolItem
     {

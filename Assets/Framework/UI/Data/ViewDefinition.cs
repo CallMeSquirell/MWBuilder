@@ -1,7 +1,6 @@
 using System;
-using UI.Framework.UI.Managers.Layers;
 
-namespace UI.Framework.UI.Data
+namespace UI.Framework.Data
 {
     [Serializable]
     public class ViewDefinition : IViewDefinition

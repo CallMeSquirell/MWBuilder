@@ -1,8 +1,8 @@
-﻿using AssetManagement.Framework.ResourceManagement.Assets;
-using AssetManagement.Framework.ResourceManagement.Configs;
+﻿using AssetManagement.Framework.Assets;
+using AssetManagement.Framework.Configs;
 using Zenject;
 
-namespace AssetManagement.Framework.ResourceManagement.Installers
+namespace AssetManagement.Framework.Installers
 {
     public class ResourceManagementInstaller : Installer
     {

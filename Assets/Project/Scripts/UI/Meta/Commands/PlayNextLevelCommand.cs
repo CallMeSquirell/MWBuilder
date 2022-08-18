@@ -1,7 +1,7 @@
 ﻿using System.Threading;
-using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.BaseCommands;
 using Cysharp.Threading.Tasks;
-using GameStateMachine.Framework.GameStateMachine;
+using GameStateMachine.Framework;
 using Project.Scripts.Infrastructure.Data;
 using Project.Scripts.Infrastructure.States;
 

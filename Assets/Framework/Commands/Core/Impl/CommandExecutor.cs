@@ -1,8 +1,8 @@
-using Commands.Framework.Commands.BaseCommands;
-using Commands.Framework.Commands.Exception;
+using Commands.Framework.BaseCommands;
+using Commands.Framework.Exception;
 using Cysharp.Threading.Tasks;
 
-namespace Commands.Framework.Commands.Core.Impl
+namespace Commands.Framework.Core.Impl
 {
     public class CommandExecutor : ICommandExecutor
     {

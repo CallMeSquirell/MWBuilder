@@ -1,15 +1,15 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Data;
-using UI.Framework.UI.DI;
-using UI.Framework.UI.DI.Provider;
-using UI.Framework.UI.Views;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Data;
+using UI.Framework.DI;
+using UI.Framework.DI.Provider;
+using UI.Framework.Views;
+using UI.Framework.Views.Impl;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Framework.UI.Managers.Layers
+namespace UI.Framework.Managers.Layers
 {
     [RequireComponent(typeof(Canvas))]
     public class WindowLayer : MonoBehaviour

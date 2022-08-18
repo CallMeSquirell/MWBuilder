@@ -1,4 +1,4 @@
-using GameStateMachine.Framework.GameStateMachine;
+using GameStateMachine.Framework;
 using Project.Scripts.Infrastructure.States;
 using UnityEngine;
 using Zenject;

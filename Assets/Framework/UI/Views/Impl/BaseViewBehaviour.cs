@@ -1,8 +1,8 @@
-using AssetManagement.Framework.ResourceManagement.Assets;
+using AssetManagement.Framework.Assets;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Framework.UI.Views.Impl
+namespace UI.Framework.Views.Impl
 {
     public class BaseViewBehaviour : MonoBehaviour
     {

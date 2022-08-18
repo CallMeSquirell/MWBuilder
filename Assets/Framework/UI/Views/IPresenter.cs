@@ -1,6 +1,6 @@
 using System;
 
-namespace UI.Framework.UI.Views
+namespace UI.Framework.Views
 {
     public interface IPresenter : IDisposable
     {

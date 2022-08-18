@@ -1,10 +1,10 @@
-using Commands.Framework.Commands.Core;
-using Commands.Framework.Commands.Core.Impl;
-using Commands.Framework.Commands.ExecutableQueue;
-using Commands.Framework.Commands.ExecutableQueue.Impl;
+using Commands.Framework.Core;
+using Commands.Framework.Core.Impl;
+using Commands.Framework.ExecutableQueue;
+using Commands.Framework.ExecutableQueue.Impl;
 using Zenject;
 
-namespace Commands.Framework.Commands.Installers
+namespace Commands.Framework.Installers
 {
     public class CommandInstaller : Installer
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace GameStateMachine.Framework.GameStateMachine
+namespace GameStateMachine.Framework
 {
     public interface IGameStateMachine
     {

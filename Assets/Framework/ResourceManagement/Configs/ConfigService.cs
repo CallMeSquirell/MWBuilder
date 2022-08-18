@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using AssetManagement.Framework.ResourceManagement.Assets;
+using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace AssetManagement.Framework.ResourceManagement.Configs
+namespace AssetManagement.Framework.Configs
 {
     public class ConfigService : IConfigService, IInitializable
     {

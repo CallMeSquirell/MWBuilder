@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UI.Framework.UI.Exceptions
+namespace UI.Framework.Exceptions
 {
     public class NoSuchLayerException : Exception
     {

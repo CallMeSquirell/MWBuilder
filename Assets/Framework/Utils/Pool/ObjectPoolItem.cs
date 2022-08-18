@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utils.Framework.Utils.Pool
+namespace Utils.Framework.Pool
 {
     public class ObjectPoolItem : MonoBehaviour, IPoolItem
     {

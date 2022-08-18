@@ -1,10 +1,10 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Animations;
-using Utils.Framework.Utils.Extensions;
+using UI.Framework.Animations;
+using Utils.Framework.Extensions;
 
-namespace UI.Framework.UI.Views.Impl
+namespace UI.Framework.Views.Impl
 {
     public class ScreenBaseView : BaseViewBehaviour, IScreenBaseView
     {

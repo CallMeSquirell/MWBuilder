@@ -1,10 +1,10 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Data;
-using UI.Framework.UI.ViewListeners;
-using UI.Framework.UI.Views;
+using UI.Framework.Data;
+using UI.Framework.ViewListeners;
+using UI.Framework.Views;
 
-namespace UI.Framework.UI.Managers
+namespace UI.Framework.Managers
 {
     public interface IUIManager
     {

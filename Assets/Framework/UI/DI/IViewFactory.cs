@@ -1,10 +1,10 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Data;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Data;
+using UI.Framework.Views.Impl;
 using UnityEngine;
 
-namespace UI.Framework.UI.DI
+namespace UI.Framework.DI
 {
     public interface IViewFactory
     {

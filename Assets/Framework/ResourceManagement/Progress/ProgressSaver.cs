@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace AssetManagement.Framework.ResourceManagement.Progress
+namespace AssetManagement.Framework.Progress
 {
     public class ProgressSaver : IProgressSaver
     {

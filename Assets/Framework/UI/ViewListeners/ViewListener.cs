@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace UI.Framework.UI.ViewListeners
+namespace UI.Framework.ViewListeners
 {
     public class ViewListener : IInvokableViewListener
     {

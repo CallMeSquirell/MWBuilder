@@ -1,8 +1,8 @@
 using System.Threading;
-using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.BaseCommands;
 using Cysharp.Threading.Tasks;
 
-namespace Commands.Framework.Commands.ExecutableQueue.Impl
+namespace Commands.Framework.ExecutableQueue.Impl
 {
     public class QueuedCommand : IQueuedCommand
     {

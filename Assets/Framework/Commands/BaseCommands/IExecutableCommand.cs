@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace Commands.Framework.Commands.BaseCommands
+namespace Commands.Framework.BaseCommands
 {
     public interface ICommand : IDisposable
     {

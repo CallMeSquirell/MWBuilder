@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using UI.Framework.UI.Views;
+using UI.Framework.Views;
 using Zenject;
 
-namespace UI.Framework.UI.DI.Binding
+namespace UI.Framework.DI.Binding
 {
     public sealed class PresenterBinding : IPresenterBinding
     {

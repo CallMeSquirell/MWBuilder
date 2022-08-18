@@ -1,6 +1,6 @@
-﻿using Commands.Framework.Commands.Core;
+﻿using Commands.Framework.Core;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Views.Impl;
 
 namespace Project.Scripts.UI.Meta
 {

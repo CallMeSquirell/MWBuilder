@@ -3,9 +3,9 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using Utils.Framework.Utils.Extensions;
+using Utils.Framework.Extensions;
 
-namespace UI.Framework.UI.Views.Impl
+namespace UI.Framework.Views.Impl
 {
     public class PopUpView : ManagedView, IPopUpView
     {

@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Utils.Framework.Utils.Editor
+namespace Utils.Framework.Editor
 {
     public static class StartUpStarter
     {

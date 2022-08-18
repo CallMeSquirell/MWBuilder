@@ -1,6 +1,4 @@
-using UI.Framework.UI.Managers.Layers;
-
-namespace UI.Framework.UI.Data
+namespace UI.Framework.Data
 {
     public interface IViewDefinition
     {

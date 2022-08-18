@@ -1,8 +1,8 @@
-﻿using AssetManagement.Framework.ResourceManagement.Installers;
-using Commands.Framework.Commands.Installers;
-using GameStateMachine.Framework.GameStateMachine;
+﻿using AssetManagement.Framework.Installers;
+using Commands.Framework.Installers;
+using GameStateMachine.Framework;
 using Project.Scripts.UI.Meta;
-using UI.Framework.UI.Installers;
+using UI.Framework.Installers;
 using Zenject;
 
 namespace Project.Scripts.Infrastructure.Installers
@@ -21,6 +21,7 @@ namespace Project.Scripts.Infrastructure.Installers
             Container.Install<ResourceManagementInstaller>();
             Container.Install<GameStateMachineInstaller>();
             Container.Install<MetaUIInstaller>();
+            Container.Install<InfrastructureInstaller>();
         }
     }
 }

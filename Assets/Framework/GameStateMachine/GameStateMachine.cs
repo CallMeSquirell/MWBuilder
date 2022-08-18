@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using Zenject;
 
-namespace GameStateMachine.Framework.GameStateMachine
+namespace GameStateMachine.Framework
 {
     public class GameStateMachine : IGameStateMachine
     {

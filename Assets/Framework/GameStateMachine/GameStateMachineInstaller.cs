@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace GameStateMachine.Framework.GameStateMachine
+namespace GameStateMachine.Framework
 {
     public class GameStateMachineInstaller : Installer
     {

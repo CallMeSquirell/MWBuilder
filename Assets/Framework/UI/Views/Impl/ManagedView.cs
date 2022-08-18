@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace UI.Framework.UI.Views.Impl
+namespace UI.Framework.Views.Impl
 {
     public abstract class ManagedView : ScreenBaseView, IManagedView
     {

@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
-using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.BaseCommands;
 
-namespace Commands.Framework.Commands.ExecutableQueue
+namespace Commands.Framework.ExecutableQueue
 {
     public interface ICommandQueue : IDisposable
     {

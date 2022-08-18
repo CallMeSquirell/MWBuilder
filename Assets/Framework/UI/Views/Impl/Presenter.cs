@@ -1,4 +1,4 @@
-namespace UI.Framework.UI.Views.Impl
+namespace UI.Framework.Views.Impl
 {
     public abstract class Presenter<V> : IPresenter<V> where V : IScreenBaseView
     {

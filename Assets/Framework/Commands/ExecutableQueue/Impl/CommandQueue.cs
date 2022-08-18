@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Commands.Framework.Commands.BaseCommands;
-using Commands.Framework.Commands.Core;
-using Commands.Framework.Commands.Core.Impl;
+using Commands.Framework.BaseCommands;
+using Commands.Framework.Core;
+using Commands.Framework.Core.Impl;
 using Cysharp.Threading.Tasks;
 
-namespace Commands.Framework.Commands.ExecutableQueue.Impl
+namespace Commands.Framework.ExecutableQueue.Impl
 {
     public class PriorityComparer : IComparer<int>
     {

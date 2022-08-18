@@ -1,4 +1,4 @@
-namespace Utils.Framework.Utils.Editor
+namespace Utils.Framework.Editor
 {
     public class SceneConfig
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Views.Impl;
 using UnityEngine;
 using UnityEngine.UI;
 

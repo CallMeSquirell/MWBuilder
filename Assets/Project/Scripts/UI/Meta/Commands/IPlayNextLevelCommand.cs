@@ -1,4 +1,4 @@
-﻿using Commands.Framework.Commands.BaseCommands;
+﻿using Commands.Framework.BaseCommands;
 
 namespace Project.Scripts.UI.Meta
 {

@@ -5,6 +5,6 @@ namespace Project.Scripts.Infrastructure.Data
     [Serializable]
     public class PlayerContext
     {
-        public string Id;
+        public string Id { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Commands.Framework.Commands.BaseCommands;
+using Commands.Framework.BaseCommands;
 
-namespace Commands.Framework.Commands.Core.Impl
+namespace Commands.Framework.Core.Impl
 {
     internal class CommandBinder : ICommandBinder
     {

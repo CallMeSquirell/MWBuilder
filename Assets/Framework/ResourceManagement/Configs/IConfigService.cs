@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AssetManagement.Framework.ResourceManagement.Configs
+namespace AssetManagement.Framework.Configs
 {
     public interface IConfigService
     {

@@ -1,6 +1,6 @@
-using UI.Framework.UI.ViewListeners;
+using UI.Framework.ViewListeners;
 
-namespace UI.Framework.UI.Data
+namespace UI.Framework.Data
 {
     public interface IViewData
     {

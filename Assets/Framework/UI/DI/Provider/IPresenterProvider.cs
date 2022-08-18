@@ -1,6 +1,6 @@
-using UI.Framework.UI.Views;
+using UI.Framework.Views;
 
-namespace UI.Framework.UI.DI.Provider
+namespace UI.Framework.DI.Provider
 {
     public interface IPresenterProvider
     {

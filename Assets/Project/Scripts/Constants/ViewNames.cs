@@ -1,5 +1,5 @@
 ﻿using Framework.UI.Animations.Scripts.Constants;
-using UI.Framework.UI.Data;
+using UI.Framework.Data;
 
 namespace Project.Scripts.Constants
 {

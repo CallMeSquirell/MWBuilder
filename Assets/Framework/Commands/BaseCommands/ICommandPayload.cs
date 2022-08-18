@@ -1,4 +1,4 @@
-namespace Commands.Framework.Commands.BaseCommands
+namespace Commands.Framework.BaseCommands
 {
     public interface ICommandPayload
     {

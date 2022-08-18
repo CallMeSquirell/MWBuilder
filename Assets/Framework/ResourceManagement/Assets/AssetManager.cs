@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace AssetManagement.Framework.ResourceManagement.Assets
+namespace AssetManagement.Framework.Assets
 {
     public class AssetManager : IAssetManager
     {

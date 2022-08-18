@@ -1,4 +1,4 @@
-﻿namespace AssetManagement.Framework.ResourceManagement.Progress
+﻿namespace AssetManagement.Framework.Progress
 {
     public interface IProgressSaver
     {

@@ -1,4 +1,4 @@
-using Core.Framework.Core;
+using Core.Framework;
 using Project.Scripts.Core.Cells.Factory;
 using Project.Scripts.Core.Configs;
 using UnityEngine;

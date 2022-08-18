@@ -1,4 +1,4 @@
-using Core.Framework.Core;
+using Core.Framework;
 
 namespace Project.Scripts.Core.Cells
 {

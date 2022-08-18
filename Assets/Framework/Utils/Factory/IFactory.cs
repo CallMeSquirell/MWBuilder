@@ -1,4 +1,4 @@
-namespace Utils.Framework.Utils.Factory
+namespace Utils.Framework.Factory
 {
     public interface IFactory<T>
     {

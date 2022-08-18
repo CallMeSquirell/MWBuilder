@@ -1,4 +1,4 @@
-namespace Commands.Framework.Commands.Exception
+namespace Commands.Framework.Exception
 {
     public class NoSuchCommandException : System.Exception
     {

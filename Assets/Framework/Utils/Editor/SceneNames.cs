@@ -1,4 +1,4 @@
-﻿namespace Utils.Framework.Utils.Editor
+﻿namespace Utils.Framework.Editor
 {
     public static class SceneNames
     {

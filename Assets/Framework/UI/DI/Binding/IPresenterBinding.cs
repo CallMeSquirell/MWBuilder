@@ -1,6 +1,6 @@
-using UI.Framework.UI.Views;
+using UI.Framework.Views;
 
-namespace UI.Framework.UI.DI.Binding
+namespace UI.Framework.DI.Binding
 {
     public interface IPresenterBinding
     {

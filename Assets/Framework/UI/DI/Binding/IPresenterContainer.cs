@@ -1,7 +1,7 @@
 using System;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Views.Impl;
 
-namespace UI.Framework.UI.DI.Binding
+namespace UI.Framework.DI.Binding
 {
     public interface IPresenterContainer
     {

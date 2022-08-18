@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
-using GameStateMachine.Framework.GameStateMachine;
+using GameStateMachine.Framework;
 using Project.Scripts.Infrastructure.Data;
-using UI.Framework.UI.Managers;
+using UI.Framework.Managers;
 
 namespace Project.Scripts.Infrastructure.States
 {
@@ -11,7 +11,7 @@ namespace Project.Scripts.Infrastructure.States
         private readonly IGameStateMachine _gameStateMachine;
         private readonly IUIManager _uiManager;
 
-        public LoadingState(IGameStateMachine gameStateMachine, 
+        public LoadingState(IGameStateMachine gameStateMachine,
             IUIManager uiManager)
         {
             _gameStateMachine = gameStateMachine;

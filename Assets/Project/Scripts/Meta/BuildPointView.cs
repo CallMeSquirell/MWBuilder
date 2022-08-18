@@ -1,4 +1,4 @@
-﻿using Core.Framework.Core;
+﻿using Core.Framework;
 using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Meta

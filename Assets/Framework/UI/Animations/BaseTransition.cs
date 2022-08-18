@@ -2,7 +2,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace UI.Framework.UI.Animations
+namespace UI.Framework.Animations
 {
     public abstract class BaseTransition : MonoBehaviour
     {

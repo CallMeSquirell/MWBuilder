@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
-using UI.Framework.UI.DI.Binding;
-using UI.Framework.UI.Views;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.DI.Binding;
+using UI.Framework.Views;
+using UI.Framework.Views.Impl;
 using UnityEngine;
 
-namespace UI.Framework.UI.DI.Provider
+namespace UI.Framework.DI.Provider
 {
     public sealed class PresenterProvider : IPresenterProvider
     {

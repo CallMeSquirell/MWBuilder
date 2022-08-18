@@ -1,12 +1,12 @@
 using System.Threading;
-using AssetManagement.Framework.ResourceManagement.Assets;
+using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Data;
-using UI.Framework.UI.Views.Impl;
+using UI.Framework.Data;
+using UI.Framework.Views.Impl;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Framework.UI.DI
+namespace UI.Framework.DI
 {
     public class ViewFactory : IViewFactory
     {

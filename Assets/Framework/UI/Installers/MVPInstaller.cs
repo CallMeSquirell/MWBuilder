@@ -1,7 +1,7 @@
-using Commands.Framework.Commands.Core;
-using UI.Framework.UI.DI.Binding;
+using Commands.Framework.Core;
+using UI.Framework.DI.Binding;
 
-namespace Utils.Framework.Utils.Installers
+namespace UI.Framework.Installers
 {
     public abstract class MVPInstaller : Zenject.Installer
     {

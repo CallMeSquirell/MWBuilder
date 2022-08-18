@@ -1,7 +1,7 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace AssetManagement.Framework.ResourceManagement.Assets
+namespace AssetManagement.Framework.Assets
 {
     public interface IAssetManager
     {

@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using AssetManagement.Framework.ResourceManagement.Assets;
+using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
-using UI.Framework.UI.Data;
-using UI.Framework.UI.Exceptions;
-using UI.Framework.UI.Managers.Layers;
-using UI.Framework.UI.ViewListeners;
-using UI.Framework.UI.Views;
+using UI.Framework.Data;
+using UI.Framework.Managers.Layers;
+using UI.Framework.ViewListeners;
+using UI.Framework.Views;
 using UnityEngine;
 using Zenject;
 
-namespace UI.Framework.UI.Managers
+namespace UI.Framework.Managers
 {
     public class UIManager : IUIManager
     {
