@@ -1,11 +1,14 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
 using GameStateMachine.Framework;
 using Project.Scripts.Constants;
+using Project.Scripts.Core;
 using Project.Scripts.Infrastructure.Data;
 using UI.Framework.Managers;
 using Utils.Framework.Editor;
+using Utils.Framework.Extensions;
 
 namespace Project.Scripts.Infrastructure.States
 {
@@ -24,8 +27,9 @@ namespace Project.Scripts.Infrastructure.States
 
         public async UniTask Enter(CancellationToken cancellationToken)
         {
-            await _assetManager.LoadScene(SceneNames.MetaScene.Path);
+            var scene = await _assetManager.LoadScene(SceneNames.GameScene.Path);
             await _uiManager.OpenView(ViewNames.CoreScreen).Opened;
+            var levelView = scene.Scene.FindComponentInRootObjects<LevelView>();
         }
 
         public UniTask Exit(CancellationToken cancellationToken)

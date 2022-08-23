@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace AssetManagement.Framework.Assets
 {
@@ -24,7 +25,7 @@ namespace AssetManagement.Framework.Assets
             return component;
         }
 
-        public UniTask LoadScene(string path)
+        public UniTask<SceneInstance> LoadScene(string path)
         {
             return Addressables.LoadSceneAsync(path).ToUniTask();
         }

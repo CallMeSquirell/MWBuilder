@@ -6,7 +6,27 @@ namespace Core.Framework
 {
     public class BaseView<T> : MonoBehaviour
     {
-        public T Data { get; private set; }
+        private T _data;
+
+        public T Data
+        {
+            get => _data;
+            set
+            {
+                if (_data != null)
+                {
+                    OnDataRemoved();
+                }
+                
+                _data = value;
+
+                if (_data != null)
+                {
+                    OnDataSetUpped();
+                }
+            }
+        }
+
         protected IInstantiator Instantiator { get; private set; }
         protected IConfigService ConfigService { get; private set; }
 
@@ -16,14 +36,12 @@ namespace Core.Framework
             ConfigService = configService;
             Instantiator = instantiator;
         }
-
-        public void SetData(T data)
-        {
-            Data = data;
-            OnDataSetUpped();
-        }
-
+        
         protected virtual void OnDataSetUpped()
+        {
+        }
+        
+        protected virtual void OnDataRemoved()
         {
         }
     }

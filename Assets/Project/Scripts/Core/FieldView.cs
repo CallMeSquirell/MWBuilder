@@ -28,7 +28,7 @@ namespace Project.Scripts.Core
                 var position = _grid.GetCellCenterLocal((Vector3Int)cell.Position);
                 var cellView = _cellFactory.Create(_container);
                 cellView.transform.localPosition = position;
-                cellView.SetData(cell);
+                cellView.Data = cell;
             }
         }
 
