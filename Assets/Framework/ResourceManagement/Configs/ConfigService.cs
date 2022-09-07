@@ -1,25 +1,31 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using Zenject;
 
 namespace AssetManagement.Framework.Configs
 {
-    public class ConfigService : IConfigService, IInitializable
+    public abstract class ConfigService : IConfigService
     {
-        private Dictionary<Type, ScriptableObject> _configs;
-        private IAssetManager _assetManager;
+        private readonly Dictionary<Type, ScriptableObject> _configs;
+        private readonly IAssetManager _assetManager;
 
-        public void Initialize()
+        protected ConfigService(IAssetManager assetManager)
         {
+            _assetManager = assetManager;
             _configs = new Dictionary<Type, ScriptableObject>();
         }
 
-        private async UniTask LoadConfig(string key)
+        public UniTask Initialize(CancellationToken cancellationToken)
         {
-            var config = await _assetManager.LoadAsset<ScriptableObject>(key);
+            return LoadConfigs(cancellationToken);
+        }
+        
+        protected async UniTask LoadConfig(string key, CancellationToken cancellationToken)
+        {
+            var config = await _assetManager.LoadAsset<ScriptableObject>(key, cancellationToken);
             _configs.Add(config.GetType(), config);
         }
         
@@ -32,5 +38,7 @@ namespace AssetManagement.Framework.Configs
 
             return null;
         }
+        
+        protected abstract UniTask LoadConfigs(CancellationToken cancellationToken);
     }
 }

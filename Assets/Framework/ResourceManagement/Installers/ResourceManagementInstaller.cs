@@ -9,7 +9,6 @@ namespace AssetManagement.Framework.Installers
         public override void InstallBindings()
         {
             Container.Bind<IAssetManager>().To<AssetManager>().AsSingle();
-            Container.Bind<IConfigService>().To<ConfigService>().AsSingle();
         }
     }
 }

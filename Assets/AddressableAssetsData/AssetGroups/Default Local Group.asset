@@ -21,10 +21,27 @@ MonoBehaviour:
     m_Address: MetaScene
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bc2dfe75e876fc4eaf5238b63d1ae18
     m_Address: GameScene
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f7149c05278ecf44b3c04972b0a79ee
+    m_Address: Configs/LevelListConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca0291cf223613848bf8833a1bd4c6c3
+    m_Address: LevelView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14306743fb1d0ef47809b82d039b3758
+    m_Address: Configs/CellViewConfig
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: de9869b2b6989354b9d1894a922b7c38, type: 2}
   m_SchemaSet:
