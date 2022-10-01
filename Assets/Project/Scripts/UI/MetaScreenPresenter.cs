@@ -1,5 +1,6 @@
 ﻿using Commands.Framework.Core;
 using Cysharp.Threading.Tasks;
+using Project.Scripts.UI.Commands;
 using UI.Framework.Views.Impl;
 
 namespace Project.Scripts.UI.Meta
@@ -13,7 +14,7 @@ namespace Project.Scripts.UI.Meta
             _commandExecutor = commandExecutor;
         }
 
-        public override void Initialise()
+        public override void Initialize()
         {
             View.PlayClicked += OnPlayClicked;
         }

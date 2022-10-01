@@ -1,47 +1,53 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
 using GameStateMachine.Framework;
 using Project.Scripts.Constants;
 using Project.Scripts.Core;
-using Project.Scripts.Infrastructure.Data;
+using Project.Scripts.Core.Services;
 using UI.Framework.Managers;
+using UnityEngine;
 using Utils.Framework.Editor;
+using Utils.Framework.Extensions;
 using Zenject;
 
 namespace Project.Scripts.Infrastructure.States
 {
     public class CoreState : IGameState
     {
-        private readonly CoreContext _coreContext;
         private readonly IAssetManager _assetManager;
         private readonly IUIManager _uiManager;
         private readonly IInstantiator _instantiator;
-        private FieldView _levelView;
-        private FieldModel _levelModel;
+        private readonly IPlayerChangeService _playerChangeService;
+        private FieldView _fieldView;
+        private FieldModel _fieldModel;
 
-        public CoreState(CoreContext coreContext, IAssetManager assetManager, IUIManager uiManager, IInstantiator instantiator)
+        public CoreState(IAssetManager assetManager, IUIManager uiManager, IInstantiator instantiator, IPlayerChangeService playerChangeService)
         {
-            _coreContext = coreContext;
             _assetManager = assetManager;
             _uiManager = uiManager;
             _instantiator = instantiator;
+            _playerChangeService = playerChangeService;
         }
 
         public async UniTask Enter(CancellationToken cancellationToken)
         {
-            await _assetManager.LoadScene(SceneNames.GameScene.Path);
+            var scene = await _assetManager.LoadScene(SceneNames.GameScene.Path);
             await _uiManager.OpenView(ViewNames.CoreScreen).Opened;
-            var levelPrefab = await _assetManager.LoadPrefabForComponent<FieldView>(FieldView.Key, cancellationToken);
-            _levelView = _instantiator.InstantiatePrefabForComponent<FieldView>(levelPrefab);
-            _levelModel = new FieldModel();
-            //_levelModel.Initialize(_coreContext.LevelConfig);
-            _levelView.Data = _levelModel;
-            
+
+            _fieldView = scene.Scene.FindComponentInRootObjects<FieldView>();
+            _fieldModel = _instantiator.Instantiate<FieldModel>();
+            _fieldView.Model = _fieldModel;
+
+            var players = Object.FindObjectsOfType<PlayerView>().ToList();
+            _playerChangeService.Initialize(players);
+            _playerChangeService.Run();
         }
 
         public UniTask Exit(CancellationToken cancellationToken)
         {
+            _playerChangeService.Stop();
             return UniTask.CompletedTask;
         }
     }

@@ -16,7 +16,6 @@ namespace Project.Scripts.Infrastructure.States
         public UniTask Enter(CancellationToken cancellationToken)
         {
             return _gameStateMachine.Enter<LoadingState>(cancellationToken);
-            
         }
 
         public UniTask Exit(CancellationToken cancellationToken)

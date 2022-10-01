@@ -1,6 +1,7 @@
 ﻿using Commands.Framework.Core;
 using Framework.UI.Animations.Scripts.UI.Core.Views;
-using Project.Scripts.Core.Cells.Factory;
+using Project.Scripts.Core.Services;
+using Project.Scripts.Meta.Input;
 using UI.Framework.DI.Binding;
 using UI.Framework.Installers;
 
@@ -17,9 +18,10 @@ namespace Project.Scripts.Core
             presenterContainer.BindView<CoreScreenView>().To<CoreScreenPresenter>();
         }
 
-        protected override void InstallCommon()
+        protected override void InstallServices()
         {
-            Container.Bind<ICellViewFactory>().To<CellViewFactory>().AsSingle();
+            Container.Bind<IInputService>().To<InputService>().AsSingle();
+            Container.Bind<IPlayerChangeService>().To<PlayerChangeService>().AsSingle();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Commands.Framework.Core;
+using Project.Scripts.UI.Commands;
 using UI.Framework.DI.Binding;
 using UI.Framework.Installers;
 
@@ -13,7 +14,7 @@ namespace Project.Scripts.UI.Meta
 
         protected override void InstallCommands(ICommandBinder commandBinder)
         {
-           
+            commandBinder.Bind<IPlayNextLevelCommand>().To<PlayNextLevelCommand>();
         }
 
         protected override void InstallPresenters(IPresenterContainer presenterContainer)

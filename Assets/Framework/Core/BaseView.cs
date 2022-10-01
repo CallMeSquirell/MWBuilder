@@ -4,25 +4,25 @@ using Zenject;
 
 namespace Core.Framework
 {
-    public class BaseView<T> : MonoBehaviour
+    public class BaseView<T> : MonoBehaviour where T : class
     {
-        private T _data;
+        private T _model;
 
-        public T Data
+        public T Model
         {
-            get => _data;
+            get => _model;
             set
             {
-                if (_data != null)
+                if (_model != null)
                 {
-                    OnDataRemoved();
+                    OnUnsetModel();
                 }
                 
-                _data = value;
+                _model = value;
 
-                if (_data != null)
+                if (_model != null)
                 {
-                    OnDataSetUpped();
+                    OnSetModel();
                 }
             }
         }
@@ -37,12 +37,17 @@ namespace Core.Framework
             Instantiator = instantiator;
         }
         
-        protected virtual void OnDataSetUpped()
+        protected virtual void OnSetModel()
         {
         }
         
-        protected virtual void OnDataRemoved()
+        protected virtual void OnUnsetModel()
         {
+        }
+
+        protected virtual void OnDestroy()
+        {
+            Model = null;
         }
     }
 }

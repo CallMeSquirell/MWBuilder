@@ -9,7 +9,7 @@ namespace UI.Framework.Views.Impl
             View = view;
         }
 
-        public virtual void Initialise()
+        public virtual void Initialize()
         {
         }
 

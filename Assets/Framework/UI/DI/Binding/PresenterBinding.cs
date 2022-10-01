@@ -26,7 +26,7 @@ namespace UI.Framework.DI.Binding
         {
             var args = payload != null ? new[] {screenBaseView, payload} : new[] {screenBaseView};
             var presenter = (IPresenter) _instantiator.Instantiate(_presenterType, args);
-            presenter.Initialise();
+            presenter.Initialize();
             _createdPresenter.Add(screenBaseView, presenter);
         }
 
