@@ -17,8 +17,8 @@ namespace Project.Scripts.Infrastructure.States
         private readonly IAssetManager _assetManager;
         private readonly IUIManager _uiManager;
         private readonly IInstantiator _instantiator;
-        private LevelView _levelView;
-        private LevelModel _levelModel;
+        private FieldView _levelView;
+        private FieldModel _levelModel;
 
         public CoreState(CoreContext coreContext, IAssetManager assetManager, IUIManager uiManager, IInstantiator instantiator)
         {
@@ -32,10 +32,10 @@ namespace Project.Scripts.Infrastructure.States
         {
             await _assetManager.LoadScene(SceneNames.GameScene.Path);
             await _uiManager.OpenView(ViewNames.CoreScreen).Opened;
-            var levelPrefab = await _assetManager.LoadPrefabForComponent<LevelView>(LevelView.Key, cancellationToken);
-            _levelView = _instantiator.InstantiatePrefabForComponent<LevelView>(levelPrefab);
-            _levelModel = new LevelModel();
-            _levelModel.Initialize(_coreContext.LevelConfig);
+            var levelPrefab = await _assetManager.LoadPrefabForComponent<FieldView>(FieldView.Key, cancellationToken);
+            _levelView = _instantiator.InstantiatePrefabForComponent<FieldView>(levelPrefab);
+            _levelModel = new FieldModel();
+            //_levelModel.Initialize(_coreContext.LevelConfig);
             _levelView.Data = _levelModel;
             
         }

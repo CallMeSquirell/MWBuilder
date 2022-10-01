@@ -13,7 +13,7 @@ namespace Project.Scripts.UI.Meta
 
         protected override void InstallCommands(ICommandBinder commandBinder)
         {
-            commandBinder.Bind<IPlayNextLevelCommand>().To<PlayNextLevelCommand>();
+           
         }
 
         protected override void InstallPresenters(IPresenterContainer presenterContainer)

@@ -1,20 +1,21 @@
 using Core.Framework;
 using Project.Scripts.Core.Cells.Factory;
-using Project.Scripts.Core.Configs;
 using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts.Core
 {
-    public class FieldView : BaseView<FieldData>
+    public class FieldView : BaseView<FieldModel>
     {
+        public const string Key = nameof(FieldView);
+        
         [SerializeField] 
         private Grid _grid;
         
         private ICellViewFactory _cellViewFactory;
 
         private Transform _container;
-
+        
         [Inject]
         private void Construct(ICellViewFactory cellViewFactory)
         {
@@ -28,7 +29,7 @@ namespace Project.Scripts.Core
 
         protected override void OnDataSetUpped()
         {
-            Resize(Data.Size);
+            //Resize(Data.Size);
             foreach (var cell in Data.Cells)
             {
                 var position = _grid.GetCellCenterLocal((Vector3Int) cell.Position);
