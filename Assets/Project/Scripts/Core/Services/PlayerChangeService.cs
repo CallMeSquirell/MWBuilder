@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Project.Scripts.Core.Services;
+using Project.Scripts.Meta.Input;
 using Utils.Framework.Extensions;
 using Utils.Framework.Property;
 using Random = UnityEngine.Random;
@@ -15,20 +17,30 @@ namespace Project.Scripts.Core
         private const int RequiredDelay = 10;
 
         private IReadOnlyList<PlayerView> _players;
+
+        private readonly BindableProperty<int> _index = new(RequiredDelay);
         private readonly List<PlayerView> _pool = new();
-        private PlayerModel _playerModel;
+        private readonly PlayerModel _playerModel;
+        
         private PlayerView _currentPlayer;
         private CancellationTokenSource _cancellationTokenSource;
-        private readonly BindableProperty<int> _index = new(RequiredDelay);
         public IBindableProperty<int> TimeLeft => _index;
+
+        public PlayerModel PlayerModel => _playerModel;
+
+        public PlayerChangeService(IInputService inputService)
+        {
+            _playerModel = new PlayerModel(inputService);
+        }
 
         public void Initialize(IReadOnlyList<PlayerView> players)
         {
             _players = players;
             RefreshPool();
-            foreach (var player in _players)
+            EnableNewPlayer();
+            foreach (var playerView in _players.Where(p => !ReferenceEquals(p, _currentPlayer)))
             {
-                player.gameObject.SetActive(false);
+                playerView.gameObject.SetActive(false);
             }
         }
 

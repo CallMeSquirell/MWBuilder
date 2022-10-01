@@ -10,5 +10,10 @@ namespace Utils.Framework.Extensions
             newVector.y = y;
             return newVector;
         }
+        
+        public static Vector3 ToXZVector3(this Vector2 vector)
+        {
+            return new Vector3(vector.x, 0, vector.y);
+        }
     }
 }

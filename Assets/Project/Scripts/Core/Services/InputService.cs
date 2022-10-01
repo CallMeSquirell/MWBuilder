@@ -16,16 +16,16 @@ namespace Project.Scripts.Meta.Input
         public InputService()
         {
             _cancellationTokenSource = new CancellationTokenSource();
-            //UpdateDirection(_cancellationTokenSource.Token).Forget();
+            UpdateDirection(_cancellationTokenSource.Token).Forget();
         }
         
         private async UniTask UpdateDirection(CancellationToken cancellationToken)
         {
-            while (!cancellationToken.IsCancellationRequested)
+            while (true)
             {
                 var inputX = UnityEngine.Input.GetAxis(Horizontal);
                 var inputY = UnityEngine.Input.GetAxis(Vertical);
-
+                
                 Direction = new Vector2(inputX, inputY);
 
                 await UniTask.Yield(cancellationToken);

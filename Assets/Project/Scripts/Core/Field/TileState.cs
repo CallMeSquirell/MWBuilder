@@ -7,10 +7,10 @@ namespace Project.Scripts.Core
     public class TileState
     {
         [SerializeField] private int _index;
-        [SerializeField] private int _height;
+        [SerializeField] private float _height;
 
         public int Index => _index;
 
-        public int Height => _height;
+        public float Height => _height;
     }
 }
