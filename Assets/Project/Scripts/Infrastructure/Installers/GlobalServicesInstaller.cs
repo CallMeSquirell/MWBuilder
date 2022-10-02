@@ -1,4 +1,5 @@
 ﻿using AssetManagement.Framework.Configs;
+using Project.Scripts.Core.Services;
 using Project.Scripts.Infrastructure.Services;
 using Zenject;
 

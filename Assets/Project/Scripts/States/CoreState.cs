@@ -2,6 +2,7 @@
 using System.Threading;
 using AssetManagement.Framework.Assets;
 using Cysharp.Threading.Tasks;
+using Framework.Timer;
 using GameStateMachine.Framework;
 using Project.Scripts.Constants;
 using Project.Scripts.Core;
@@ -35,13 +36,15 @@ namespace Project.Scripts.Infrastructure.States
         {
             var scene = await _assetManager.LoadScene(SceneNames.GameScene.Path);
             await _uiManager.OpenView(ViewNames.CoreScreen).Opened;
+            
+            var timer = new ActionTimer(10, 1);
 
             _fieldView = scene.Scene.FindComponentInRootObjects<FieldView>();
-            _fieldModel = _instantiator.Instantiate<FieldModel>();
+            _fieldModel = _instantiator.Instantiate<FieldModel>(new []{timer});
             _fieldView.Model = _fieldModel;
-
+            
             var players = Object.FindObjectsOfType<PlayerView>().ToList();
-            _playerService.Initialize(players);
+            _playerService.Initialize(players, timer);
             _playerService.RunTimer();
         }
 

@@ -1,4 +1,5 @@
-﻿using Project.Scripts.Core.Services;
+﻿using Framework.Timer;
+using Project.Scripts.Core.Services;
 
 namespace Project.Scripts.Core
 {
@@ -9,10 +10,10 @@ namespace Project.Scripts.Core
 
         public PortalsModel PortalsModel => _portalsModel;
 
-        public FieldModel(IPlayerService service, IUITutorialService iuiTutorialService)
+        public FieldModel(IPlayerService service, IUITutorialService iuiTutorialService, IActionTimer timer)
         {
             _service = service;
-            _portalsModel = new PortalsModel(iuiTutorialService);
+            _portalsModel = new PortalsModel(iuiTutorialService, timer);
         }
 
         public void StateChangeStarted()

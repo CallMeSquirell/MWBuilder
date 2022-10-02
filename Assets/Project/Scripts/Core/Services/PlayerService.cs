@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using Cysharp.Threading.Tasks;
+using Framework.Timer;
 using Project.Scripts.Core.Services;
 using Project.Scripts.Meta.Input;
 using Utils.Framework.Extensions;
@@ -13,18 +12,16 @@ namespace Project.Scripts.Core
 {
     public class PlayerService : IPlayerService
     {
-        private const int Delay = 1;
-        private const int RequiredDelay = 10;
 
         private IReadOnlyList<PlayerView> _players;
-
-        private readonly BindableProperty<int> _index = new(RequiredDelay);
+        
         private readonly List<PlayerView> _pool = new();
         private readonly PlayerModel _playerModel;
+        private IActionTimer _actionTimer;
         
         private PlayerView _currentPlayer;
         private CancellationTokenSource _cancellationTokenSource;
-        public IBindableProperty<int> TimeLeft => _index;
+        public IBindableProperty<int> TimeLeft => _actionTimer.CurrentTime;
 
         public PlayerModel PlayerModel => _playerModel;
 
@@ -33,15 +30,28 @@ namespace Project.Scripts.Core
             _playerModel = new PlayerModel(inputService);
         }
 
-        public void Initialize(IReadOnlyList<PlayerView> players)
+        public void Initialize(IReadOnlyList<PlayerView> players, IActionTimer actionTimer)
         {
             _players = players;
+            _actionTimer = actionTimer;
+            _actionTimer.Subscribe(Change);
             RefreshPool();
             EnableNewPlayer();
+           
             foreach (var playerView in _players.Where(p => !ReferenceEquals(p, _currentPlayer)))
             {
                 playerView.gameObject.SetActive(false);
             }
+        }
+
+        public void RunTimer()
+        {
+            _actionTimer.Start();
+        }
+
+        public void StopTimer()
+        {
+            _actionTimer.Stop();
         }
 
         private void RefreshPool()
@@ -53,41 +63,12 @@ namespace Project.Scripts.Core
                 _pool.Remove(_currentPlayer);
             }
         }
-
-        public void RunTimer()
-        {
-            _cancellationTokenSource = new CancellationTokenSource();
-            UpdateLoop(_cancellationTokenSource.Token).SuppressCancellationThrow();
-        }
         
-        public void StopTimer()
-        {
-            _cancellationTokenSource.Cancel();
-            _cancellationTokenSource = null;
-        }
-
-        private async UniTask UpdateLoop(CancellationToken cancellationToken)
-        {
-            while (true)
-            {
-                await UniTask.Delay(TimeSpan.FromSeconds(Delay), cancellationToken: cancellationToken);
-
-                _index.Value -= Delay;
-
-                if (_index.Value == 0)
-                {
-                    await Change();
-                    _index.Value = RequiredDelay;
-                }
-            }
-        }
-
-        private UniTask Change()
+        private void Change()
         {
             DisableOldPlayer();
             EnableNewPlayer();
             TryRefreshPool();
-            return UniTask.CompletedTask;
         }
 
         private void TryRefreshPool()

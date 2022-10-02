@@ -1,4 +1,5 @@
 ﻿using System;
+using Framework.Timer;
 using UnityEngine;
 
 namespace Project.Scripts.Core
@@ -11,9 +12,10 @@ namespace Project.Scripts.Core
         
         public Transform TeleportSpawnPoint { get; private set; }
 
-        public PortalsModel(IUITutorialService iuiTutorialService)
+        public PortalsModel(IUITutorialService iuiTutorialService, IActionTimer actionTimer)
         {
             _iuiTutorialService = iuiTutorialService;
+            actionTimer.Subscribe(RefreshPortals);
         }
 
         public void OnGateSelectionChanged(Transform teleportSpawnPoint)
