@@ -16,6 +16,8 @@ namespace Project.Scripts.Core
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _body;
         [SerializeField] private Animator _animator;
+        [SerializeField] private GameObject _particle;
+        [SerializeField] private Transform _root;
 
         private float _currentSpeed;
         private bool _isRunning;
@@ -24,13 +26,14 @@ namespace Project.Scripts.Core
         {
             Model.DirectionChanged += OnDirectionChanged;
             Model.Teleported += OnTeleported;
-            _animator.ResetTrigger(RunTrigger);
-            _animator.ResetTrigger(IdleTrigger);
+            _isRunning = false;
         }
 
         private void OnTeleported(Vector3 pos)
         {
-            transform.position = pos;
+            _particle.gameObject.SetActive(false);
+            _root.position = pos;
+            _particle.gameObject.SetActive(true);
         }
 
         private void OnDirectionChanged(Vector2 dir)

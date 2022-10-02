@@ -12,10 +12,10 @@ namespace Project.Scripts.Core
 {
     public class PlayerService : IPlayerService
     {
-
         private IReadOnlyList<PlayerView> _players;
         
         private readonly List<PlayerView> _pool = new();
+        private readonly List<PlayerView> _ignorePlayer = new();
         private readonly PlayerModel _playerModel;
         private IActionTimer _actionTimer;
         
@@ -54,10 +54,17 @@ namespace Project.Scripts.Core
             _actionTimer.Stop();
         }
 
+        public void RemovePlayerFromPool(PlayerView view)
+        {
+            _ignorePlayer.Add(view);
+            _actionTimer.Reset();
+            Change();
+        }
+
         private void RefreshPool()
         {
             _pool.Clear();
-            _pool.AddRange(_players);
+            _pool.AddRange(_players.Except(_ignorePlayer));
             if (_currentPlayer.NonNull())
             {
                 _pool.Remove(_currentPlayer);

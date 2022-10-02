@@ -215,6 +215,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 9076945315886909561}
   _body: {fileID: 989753650483029401}
   _animator: {fileID: 0}
+  _particle: {fileID: 1517889654542748299}
+  _root: {fileID: 7492729244024140165}
 --- !u!1 &1937140153856616160
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7492729244024140165}
   - component: {fileID: 9076945315886909561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,8 +321,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dust particle
       objectReference: {fileID: 0}
+    - target: {fileID: 6813416509558619124, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
+--- !u!1 &1517889654542748299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6813416509558619124, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
+  m_PrefabInstance: {fileID: 5449002254307111295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1520740443020070617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6810709059391405990, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}

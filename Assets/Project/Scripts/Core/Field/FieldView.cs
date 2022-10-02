@@ -12,6 +12,8 @@ namespace Project.Scripts.Core
         [SerializeField] private List<TileView> _tiles = new();
 
         [SerializeField] private List<LandscapeChangeTriggerView> _triggers;
+        
+        [SerializeField] private List<FinishPointView> _finishes;
 
         [SerializeField] private PortalsView _portals;
 
@@ -23,9 +25,19 @@ namespace Project.Scripts.Core
             {
                 trigger.Triggered += OnTriggered;
             }
+            
+            foreach (var finish in _finishes)
+            {
+                finish.Finished += OnFinished;
+            }
 
             _portals.Model = Model.PortalsModel;
             CoreScreenView.StateChanged += OnTriggered;
+        }
+
+        private void OnFinished(PlayerView view)
+        {
+            Model.PlayerEarnedFinish(view);
         }
 
         private void OnTriggered(int index)
@@ -53,7 +65,12 @@ namespace Project.Scripts.Core
             {
                 trigger.Triggered -= OnTriggered;
             }
-
+            
+            foreach (var finish in _finishes)
+            {
+                finish.Finished -= OnFinished;
+            }
+            _portals.Model = null;
             CoreScreenView.StateChanged -= OnTriggered;
         }
     }
