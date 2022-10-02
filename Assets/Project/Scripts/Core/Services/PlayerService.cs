@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerChangeService : IPlayerChangeService
+    public class PlayerService : IPlayerService
     {
         private const int Delay = 1;
         private const int RequiredDelay = 10;
@@ -28,7 +28,7 @@ namespace Project.Scripts.Core
 
         public PlayerModel PlayerModel => _playerModel;
 
-        public PlayerChangeService(IInputService inputService)
+        public PlayerService(IInputService inputService)
         {
             _playerModel = new PlayerModel(inputService);
         }
@@ -54,10 +54,16 @@ namespace Project.Scripts.Core
             }
         }
 
-        public void Run()
+        public void RunTimer()
         {
             _cancellationTokenSource = new CancellationTokenSource();
             UpdateLoop(_cancellationTokenSource.Token).SuppressCancellationThrow();
+        }
+        
+        public void StopTimer()
+        {
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource = null;
         }
 
         private async UniTask UpdateLoop(CancellationToken cancellationToken)
@@ -106,12 +112,6 @@ namespace Project.Scripts.Core
             _pool.Remove(_currentPlayer);
             _currentPlayer.Model = _playerModel;
             _currentPlayer.gameObject.SetActive(true);
-        }
-
-        public void Stop()
-        {
-            _cancellationTokenSource.Cancel();
-            _cancellationTokenSource = null;
         }
     }
 }

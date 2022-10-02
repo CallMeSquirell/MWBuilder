@@ -11,12 +11,10 @@ namespace Project.Scripts.Meta.Input
         
         public Vector2 Direction { get; private set; }
 
-        private CancellationTokenSource _cancellationTokenSource;
-
         public InputService()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
-            UpdateDirection(_cancellationTokenSource.Token).Forget();
+            var cancellationTokenSource = new CancellationTokenSource();
+            UpdateDirection(cancellationTokenSource.Token).Forget();
         }
         
         private async UniTask UpdateDirection(CancellationToken cancellationToken)

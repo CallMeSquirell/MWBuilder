@@ -9,6 +9,7 @@ namespace Framework.UI.Animations.Scripts.UI.Core.Views
     public class CoreScreenView : ScreenBaseView
     {
         public static event Action<int> StateChanged;
+        public event Action SettingsClicked;
         
         [SerializeField] 
         private Button _changeStateButton;
@@ -19,10 +20,22 @@ namespace Framework.UI.Animations.Scripts.UI.Core.Views
         [SerializeField] 
         private TextMeshProUGUI _timerText;
         
+        [SerializeField] 
+        private GameObject _portalHelper;
+        
+        [SerializeField] 
+        private Button _settingsButton;
+        
         protected override void Awake()
         {
             base.Awake();
            _changeStateButton.onClick.AddListener(OnStateChangedClicked);
+           _settingsButton.onClick.AddListener(OnSettingsClicked);
+        }
+
+        private void OnSettingsClicked()
+        {
+            SettingsClicked?.Invoke();
         }
 
         private void OnStateChangedClicked()
@@ -33,6 +46,11 @@ namespace Framework.UI.Animations.Scripts.UI.Core.Views
         public void UpdateTimer(int value)
         {
             _timerText.text = value.ToString();
+        }
+
+        public void OnPortalHelperChanged(bool value)
+        {
+            _portalHelper.SetActive(value);
         }
     }
 }

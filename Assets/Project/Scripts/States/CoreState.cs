@@ -19,16 +19,16 @@ namespace Project.Scripts.Infrastructure.States
         private readonly IAssetManager _assetManager;
         private readonly IUIManager _uiManager;
         private readonly IInstantiator _instantiator;
-        private readonly IPlayerChangeService _playerChangeService;
+        private readonly IPlayerService _playerService;
         private FieldView _fieldView;
         private FieldModel _fieldModel;
 
-        public CoreState(IAssetManager assetManager, IUIManager uiManager, IInstantiator instantiator, IPlayerChangeService playerChangeService)
+        public CoreState(IAssetManager assetManager, IUIManager uiManager, IInstantiator instantiator, IPlayerService playerService)
         {
             _assetManager = assetManager;
             _uiManager = uiManager;
             _instantiator = instantiator;
-            _playerChangeService = playerChangeService;
+            _playerService = playerService;
         }
 
         public async UniTask Enter(CancellationToken cancellationToken)
@@ -41,13 +41,13 @@ namespace Project.Scripts.Infrastructure.States
             _fieldView.Model = _fieldModel;
 
             var players = Object.FindObjectsOfType<PlayerView>().ToList();
-            _playerChangeService.Initialize(players);
-            _playerChangeService.Run();
+            _playerService.Initialize(players);
+            _playerService.RunTimer();
         }
 
         public UniTask Exit(CancellationToken cancellationToken)
         {
-            _playerChangeService.Stop();
+            _playerService.StopTimer();
             return UniTask.CompletedTask;
         }
     }

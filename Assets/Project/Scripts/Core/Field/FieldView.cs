@@ -9,11 +9,11 @@ namespace Project.Scripts.Core
 {
     public class FieldView : BaseView<FieldModel>
     {
-        [SerializeField]
-        private List<TileView> _tiles = new();
+        [SerializeField] private List<TileView> _tiles = new();
 
-        [SerializeField] 
-        private List<HeightTriggerView> _triggers;
+        [SerializeField] private List<LandscapeChangeTriggerView> _triggers;
+
+        [SerializeField] private PortalsView _portals;
 
         private CancellationTokenSource _cancellationToken;
 
@@ -24,6 +24,7 @@ namespace Project.Scripts.Core
                 trigger.Triggered += OnTriggered;
             }
 
+            _portals.Model = Model.PortalsModel;
             CoreScreenView.StateChanged += OnTriggered;
         }
 
@@ -36,10 +37,13 @@ namespace Project.Scripts.Core
         private async UniTask ApplyState(int index, CancellationToken cancellationToken)
         {
             Model.StateChangeStarted();
+            var tasks = new List<UniTask>();
             foreach (var tile in _tiles)
             {
-                await tile.ApplyState(index, cancellationToken);
+                tasks.Add(tile.ApplyState(index, cancellationToken));
             }
+
+            await tasks;
             Model.StateChangeEnded();
         }
 
@@ -49,6 +53,7 @@ namespace Project.Scripts.Core
             {
                 trigger.Triggered -= OnTriggered;
             }
+
             CoreScreenView.StateChanged -= OnTriggered;
         }
     }

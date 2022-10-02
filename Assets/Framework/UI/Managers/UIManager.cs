@@ -48,7 +48,7 @@ namespace UI.Framework.Managers
             var data = new ViewData(viewDefinition, payload);
             selectedLayer.PlaceView(data).Forget();
 
-            foreach (var otherLayer in _layers.Where(layer => layer != selectedLayer))
+            foreach (var otherLayer in _layers.Where(layer => layer != selectedLayer && layer.Order > selectedLayer.Order))
             {
                 otherLayer.Clear().Forget();
             }

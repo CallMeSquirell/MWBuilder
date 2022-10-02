@@ -4,21 +4,25 @@ namespace Project.Scripts.Core
 {
     public class FieldModel
     {
-        private readonly IPlayerChangeService _changeService;
+        private readonly IPlayerService _service;
+        private readonly PortalsModel _portalsModel;
 
-        public FieldModel(IPlayerChangeService changeService)
+        public PortalsModel PortalsModel => _portalsModel;
+
+        public FieldModel(IPlayerService service, IUITutorialService iuiTutorialService)
         {
-            _changeService = changeService;
+            _service = service;
+            _portalsModel = new PortalsModel(iuiTutorialService);
         }
 
         public void StateChangeStarted()
         {
-            _changeService.PlayerModel.Locked = true;
+            _service.PlayerModel.Locked = true;
         }
 
         public void StateChangeEnded()
         {
-            _changeService.PlayerModel.Locked = false;
+            _service.PlayerModel.Locked = false;
         }
     }
 }

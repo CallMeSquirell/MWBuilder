@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class HeightTriggerView : MonoBehaviour
+    public class LandscapeChangeTriggerView : MonoBehaviour
     {
         public event Action<int> Triggered;
         

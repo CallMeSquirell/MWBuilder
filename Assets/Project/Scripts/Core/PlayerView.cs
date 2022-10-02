@@ -1,6 +1,4 @@
-﻿using System;
-using Core.Framework;
-using DG.Tweening;
+﻿using Core.Framework;
 using UnityEngine;
 using Utils.Framework.Extensions;
 
@@ -8,21 +6,20 @@ namespace Project.Scripts.Core
 {
     public class PlayerView : BaseView<PlayerModel>
     {
+        private const string RunTrigger = "run";
+        private const string IdleTrigger = "idle";
+        
         [SerializeField] private float _maxSpeed = 2f;
         [SerializeField] private float _acceleration = 0.3f;
         [SerializeField] private float _rotationLerp = 0.5f;
 
         [SerializeField] private Rigidbody _rigidbody;
         [SerializeField] private Transform _body;
-        [SerializeField] private Transform _root;
+        [SerializeField] private Animator _animator;
 
         private float _currentSpeed;
-        private Transform _transform;
-        private void Awake()
-        {
-            _transform = transform;
-        }
-
+        private bool _isRunning;
+        
         protected override void OnSetModel()
         {
             Model.DirectionChanged += OnDirectionChanged;
@@ -31,7 +28,7 @@ namespace Project.Scripts.Core
         private void OnDirectionChanged(Vector2 dir)
         {
             var v3 = dir.ToXZVector3();
-            if (dir == Vector2.zero )
+            if (dir == Vector2.zero)
             {
                 _currentSpeed = 0;
             }
@@ -39,6 +36,12 @@ namespace Project.Scripts.Core
             {
                 _currentSpeed = Mathf.Clamp(_currentSpeed + _acceleration, 0, _maxSpeed);
                 _body.localRotation = Quaternion.Lerp(_body.localRotation, Quaternion.LookRotation(v3), _rotationLerp * Time.fixedDeltaTime);
+            }
+            
+            if (_currentSpeed != 0 != _isRunning)
+            {
+                _isRunning = !_isRunning;
+                _animator.SetTrigger(_isRunning ? RunTrigger : IdleTrigger);
             }
 
             _rigidbody.velocity = _body.forward * _currentSpeed;
