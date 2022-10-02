@@ -21,7 +21,9 @@ namespace Project.Scripts.Core
             var state = _tileStates.FirstOrDefault(state => state.Index == index);
             if (state != null)
             {
-                return _root.DOMoveY(state.Height, _moveDuration).SetEase(_moveCurve).ToUniTask();
+                return _root.DOMoveY(state.Height, _moveDuration)
+                    .SetEase(_moveCurve)
+                    .ToUniTask(cancellationToken: cancellationTokenSource);
             }
 
             return UniTask.CompletedTask;

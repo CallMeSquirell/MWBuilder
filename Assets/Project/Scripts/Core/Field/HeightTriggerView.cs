@@ -12,6 +12,7 @@ namespace Project.Scripts.Core
 
         private void OnTriggerEnter(Collider other)
         {
+            _collider.enabled = false;
             Triggered?.Invoke(_index);
         }
     }
