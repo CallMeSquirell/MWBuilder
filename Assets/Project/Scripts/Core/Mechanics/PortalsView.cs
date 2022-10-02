@@ -38,12 +38,12 @@ namespace Project.Scripts.Core
         private void Select(PortalGateView gate)
         {
             _selectedGateView = gate;
-            Model.OnGateSelectionChanged(_selectedGateView.NonNull() ? _selectedGateView.LinkedPortalGate.transform : null);
+            Model.OnGateSelectionChanged(_selectedGateView.NonNull() ? _selectedGateView.SpawnPoint : null);
         }
 
         private void OnPortalsRefreshRequired()
         {
-            var pool = _gates.ToList();
+            var pool = new List<PortalGateView>(_gates);
 
             for (int i = 0; i < _gates.Count; i += 2)
             {

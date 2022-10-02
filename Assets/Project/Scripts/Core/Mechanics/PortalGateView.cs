@@ -14,6 +14,7 @@ namespace Project.Scripts.Core
         [SerializeField] private GameObject _secondTypeView;
 
         public PortalGateView LinkedPortalGate { get; private set; }
+        public Transform SpawnPoint => _spawnPoint;
 
         public void Initialize(PortalGateView linkedPortalGate, bool isFirst)
         {

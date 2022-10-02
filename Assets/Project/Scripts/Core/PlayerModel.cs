@@ -9,6 +9,7 @@ namespace Project.Scripts.Core
     public class PlayerModel
     {
         public event Action<Vector2> DirectionChanged;
+        public event Action<Vector3> Teleported;
         
         private readonly IInputService _inputService;
         public bool Locked { get; set; } = false;
@@ -31,6 +32,11 @@ namespace Project.Scripts.Core
                 DirectionChanged?.Invoke(Direction);
                 await UniTask.Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime), cancellationToken: cancellationToken);
             }
+        }
+
+        public void Teleport(Vector3 payloadPosition)
+        {
+            Teleported?.Invoke(payloadPosition);
         }
     }
 }

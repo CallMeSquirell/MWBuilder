@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Utils.Framework.Property;
 
 namespace Project.Scripts.Meta.Input
 {
@@ -8,7 +9,9 @@ namespace Project.Scripts.Meta.Input
     {
         private const string Horizontal = "Horizontal";
         private const string Vertical = "Vertical";
-        
+
+        private readonly BindableProperty<bool> _pressedKeyE = new();
+        public IBindableProperty<bool> PressedKeyE => _pressedKeyE;
         public Vector2 Direction { get; private set; }
 
         public InputService()
@@ -23,6 +26,12 @@ namespace Project.Scripts.Meta.Input
             {
                 var inputX = UnityEngine.Input.GetAxis(Horizontal);
                 var inputY = UnityEngine.Input.GetAxis(Vertical);
+                var pressedE = UnityEngine.Input.GetKeyDown(KeyCode.E);
+
+                if (pressedE != _pressedKeyE.Value)
+                {
+                    _pressedKeyE.Value = pressedE;
+                }
                 
                 Direction = new Vector2(inputX, inputY);
 

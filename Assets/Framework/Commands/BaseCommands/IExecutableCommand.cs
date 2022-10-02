@@ -14,7 +14,7 @@ namespace Commands.Framework.BaseCommands
         UniTask Execute(CancellationToken cancellationToken = default);
     }
     
-    public interface IExecutableCommand<T> : ICommand where T : ICommandPayload
+    public interface IExecutableCommand<in T> : ICommand where T : ICommandPayload
     {
         UniTask Execute(T payload, CancellationToken cancellationToken = default);
     }

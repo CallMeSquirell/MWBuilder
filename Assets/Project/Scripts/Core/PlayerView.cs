@@ -23,6 +23,14 @@ namespace Project.Scripts.Core
         protected override void OnSetModel()
         {
             Model.DirectionChanged += OnDirectionChanged;
+            Model.Teleported += OnTeleported;
+            _animator.ResetTrigger(RunTrigger);
+            _animator.ResetTrigger(IdleTrigger);
+        }
+
+        private void OnTeleported(Vector3 pos)
+        {
+            transform.position = pos;
         }
 
         private void OnDirectionChanged(Vector2 dir)
@@ -50,6 +58,7 @@ namespace Project.Scripts.Core
         protected override void OnUnsetModel()
         {
             Model.DirectionChanged -= OnDirectionChanged;
+            Model.Teleported -= OnTeleported;
         }
     }
 }

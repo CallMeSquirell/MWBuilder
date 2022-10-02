@@ -50,6 +50,8 @@ namespace Project.Scripts.Infrastructure.States
 
         public UniTask Exit(CancellationToken cancellationToken)
         {
+            _fieldView.Model = null;
+            _fieldModel.Dispose();
             _playerService.StopTimer();
             return UniTask.CompletedTask;
         }

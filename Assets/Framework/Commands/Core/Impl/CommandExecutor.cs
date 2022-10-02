@@ -16,20 +16,20 @@ namespace Commands.Framework.Core.Impl
             _commandFactory = commandFactory;
         }
 
-        public UniTask Execute<T>() where T : IExecutableCommand
+        public UniTask Execute<T>() where T : ICommand
         {
             if (_commandBinder.TryGetBind<T>(out ICommandBinding binding) && 
-                _commandFactory.Create(binding.Info) is T executableCommand)
+                _commandFactory.Create(binding.Info) is IExecutableCommand executableCommand)
             {
                 return executableCommand.Execute();
             }
             throw new NoSuchCommandException();
         }
         
-        public UniTask Execute<T>(ICommandPayload payload) where T : IExecutableCommand<ICommandPayload>
+        public UniTask Execute<T>(ICommandPayload payload) where T : ICommand
         {
             if (_commandBinder.TryGetBind<T>(out ICommandBinding binding) && 
-                _commandFactory.Create(binding.Info) is T executableCommand)
+                _commandFactory.Create(binding.Info) is IExecutableCommand<ICommandPayload> executableCommand)
             {
                 return executableCommand.Execute(payload);
             }

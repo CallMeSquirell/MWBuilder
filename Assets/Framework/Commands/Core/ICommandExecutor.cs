@@ -5,7 +5,7 @@ namespace Commands.Framework.Core
 {
     public interface ICommandExecutor
     {
-        UniTask Execute<T>() where T : IExecutableCommand;
-        UniTask Execute<T>(ICommandPayload payload) where T : IExecutableCommand<ICommandPayload>;
+        UniTask Execute<T>() where T : ICommand;
+        UniTask Execute<T>(ICommandPayload payload) where T : ICommand;
     }
 }

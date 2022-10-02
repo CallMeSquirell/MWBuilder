@@ -32,6 +32,7 @@ namespace Project.Scripts.Core
         protected override void InstallCommands(ICommandBinder commandBinder)
         {
             commandBinder.Bind<IPauseCommand>().To<PauseCommand>();
+            commandBinder.Bind<ITeleportCommand>().To<TeleportCommand>();
         }
     }
 }

@@ -57,7 +57,7 @@ namespace Framework.Timer
 
                 _currentTime.Value -= _step;
 
-                if (_currentTime.Value == 0)
+                if (_currentTime.Value <= 0)
                 {
                     _actions.ForEach(action => action?.Invoke());
                     _currentTime.Value = _requiredTime;
