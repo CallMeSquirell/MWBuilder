@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 267401437}
     m_Modifications:
+    - target: {fileID: 306474823048267893, guid: 5ad62182fb07e8e448d8bc4a02558f76, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5155390509957498124, guid: 5ad62182fb07e8e448d8bc4a02558f76, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -259,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 989753650864169616, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 989753650864169616, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: m_LocalRotation.w
@@ -292,6 +296,10 @@ PrefabInstance:
     - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: m_Name
       value: Player 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 989753650864169622, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: _animator
@@ -486,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 3
       objectReference: {fileID: 0}
+    - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 989753650864169622, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: _animator
       value: 
@@ -612,6 +624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 989753650864169622, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: _animator
       value: 
@@ -699,6 +715,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 960365873}
     m_Modifications:
+    - target: {fileID: 306474823048267893, guid: 1a939a1ec1ba7ac4abb5ec7ce18b31ef, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5155390509957498124, guid: 1a939a1ec1ba7ac4abb5ec7ce18b31ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -902,6 +922,10 @@ PrefabInstance:
     - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 989753650864169619, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 989753650864169622, guid: e4698bbf45e20ec4aae2e5169470e073, type: 3}
       propertyPath: _animator
