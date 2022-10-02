@@ -16,7 +16,7 @@ namespace Project.Scripts.Core
         [SerializeField] private float _moveDuration = 0.3f;
         [SerializeField] private Ease _moveCurve = Ease.Linear;
 
-        public UniTask ApplyState(int index, CancellationTokenSource cancellationTokenSource)
+        public UniTask ApplyState(int index, CancellationToken cancellationTokenSource)
         {
             var state = _tileStates.FirstOrDefault(state => state.Index == index);
             if (state != null)

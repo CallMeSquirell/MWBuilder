@@ -38,7 +38,7 @@ namespace Project.Scripts.Core
             Model.StateChangeStarted();
             foreach (var tile in _tiles)
             {
-                await tile.ApplyState(index, _cancellationToken);
+                await tile.ApplyState(index, cancellationToken);
             }
             Model.StateChangeEnded();
         }
