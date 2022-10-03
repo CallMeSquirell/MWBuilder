@@ -60,12 +60,24 @@ namespace Project.Scripts.Core
 
         public void FinishPlayer(PlayerView view)
         {
+            if (_ignorePlayer.Contains(view))
+            {
+                return;
+            }
+            
             _ignorePlayer.Add(view);
             _currentPlayer.Model = null;
             _currentPlayer = null;
 
-            _actionTimer.Reset();
-            Change();
+            if (_ignorePlayer.Count == _players.Count)
+            {
+                _uiManager.OpenView(ViewNames.WinScreen);
+            }
+            else
+            {
+                _actionTimer.Reset();
+                Change();
+            }
         }
 
         private void RefreshPool()

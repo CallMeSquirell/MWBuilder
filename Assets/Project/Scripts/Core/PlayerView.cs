@@ -84,6 +84,8 @@ namespace Project.Scripts.Core
 
         protected override void OnUnsetModel()
         {
+            _animator.SetBool(RunTrigger, false);
+            _rigidbody.velocity = Vector3.zero;
             Model.DirectionChanged -= OnDirectionChanged;
             Model.Teleported -= OnTeleported;
             _collisionDetector.Changed -= OnChanged;
