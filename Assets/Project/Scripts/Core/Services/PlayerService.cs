@@ -122,7 +122,7 @@ namespace Project.Scripts.Core
 
         private void EnableNewPlayer()
         {
-            _currentPlayer = _pool[Random.Range(0, _pool.Count)];
+            _currentPlayer = _pool.First();
             _pool.Remove(_currentPlayer);
             _currentPlayer.Model = _playerModel;
             _currentPlayer.gameObject.SetActive(true);
