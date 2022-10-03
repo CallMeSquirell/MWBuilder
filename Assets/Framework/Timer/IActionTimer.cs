@@ -9,6 +9,7 @@ namespace Framework.Timer
         int RequiredTime { get; }
         void Start();
         void Stop();
+        void Reset();
         void Subscribe(Action action);
         void Unsubscribe(Action action);
     }

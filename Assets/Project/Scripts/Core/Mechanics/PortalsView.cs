@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Core.Framework;
 using UnityEngine;
 using Utils.Framework.Extensions;
@@ -20,6 +19,8 @@ namespace Project.Scripts.Core
                 gate.Selected += OnSelected;
                 gate.UnSelected += OnUnselected;
             }
+
+            OnPortalsRefreshRequired();
         }
 
         private void OnSelected(PortalGateView gate)
@@ -38,19 +39,27 @@ namespace Project.Scripts.Core
         private void Select(PortalGateView gate)
         {
             _selectedGateView = gate;
-            Model.OnGateSelectionChanged(_selectedGateView.NonNull() ? _selectedGateView.SpawnPoint : null);
+            if (!_selectedGateView.NonNull() || !_selectedGateView.LinkedPortalGate.NonNull())
+            {
+                Model.OnGateSelectionChanged(null);
+            }
+            else
+            {
+                Model.OnGateSelectionChanged(_selectedGateView.LinkedPortalGate.SpawnPoint);
+            }
         }
 
         private void OnPortalsRefreshRequired()
         {
             var pool = new List<PortalGateView>(_gates);
+            var count = pool.Count;
 
-            for (int i = 0; i < _gates.Count; i += 2)
+            while (pool.Count > 0)
             {
                 var firstItem = PickUpRandomItem(pool);
                 var secondItem = PickUpRandomItem(pool);
-
-                if (firstItem.NonNull() || secondItem.NonNull())
+                
+                if (!firstItem.NonNull() || !secondItem.NonNull())
                 {
                     break;
                 }
@@ -67,7 +76,7 @@ namespace Project.Scripts.Core
                 return null;
             }
 
-            var gate = pool[Random.Range(0, pool.Capacity)];
+            var gate = pool[Random.Range(0, pool.Count)];
             pool.Remove(gate);
             return gate;
         }

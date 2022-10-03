@@ -24,7 +24,12 @@ namespace Framework.Timer
         {
             _step = step;
             _requiredTime = time;
-            _currentTime.Value = time;
+            Reset();
+        }
+
+        public void Reset()
+        {
+            _currentTime.Value = _requiredTime;
         }
 
         public void Subscribe(Action action)

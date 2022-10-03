@@ -11,5 +11,6 @@ namespace Project.Scripts.Core.Services
         void Initialize(IReadOnlyList<PlayerView> players, IActionTimer actionTimer);
         void RunTimer();
         void StopTimer();
+        void RemovePlayerFromPool(PlayerView view);
     }
 }

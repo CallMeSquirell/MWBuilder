@@ -58,5 +58,10 @@ namespace Project.Scripts.Core
         {
             _inputService.PressedKeyE.RemoveListener(OnEPressed);
         }
+
+        public void PlayerEarnedFinish(PlayerView view)
+        {
+            _service.RemovePlayerFromPool(view);
+        }
     }
 }
