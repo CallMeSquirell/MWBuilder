@@ -37,7 +37,7 @@ namespace Project.Scripts.Infrastructure.States
             var scene = await _assetManager.LoadScene(SceneNames.GameScene.Path);
             await _uiManager.OpenView(ViewNames.CoreScreen).Opened;
             
-            var timer = new ActionTimer(3, 1);
+            var timer = new ActionTimer(10, 1);
 
             _fieldView = scene.Scene.FindComponentInRootObjects<FieldView>();
             _fieldModel = _instantiator.Instantiate<FieldModel>(new []{timer});
