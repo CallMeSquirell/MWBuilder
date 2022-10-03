@@ -1,10 +1,8 @@
 ﻿using System;
 using Commands.Framework.Core;
-using Cysharp.Threading.Tasks;
 using Framework.Timer;
 using Project.Scripts.Core.Services;
 using Project.Scripts.Meta.Input;
-using Project.Scripts.UI.Commands;
 
 namespace Project.Scripts.Core
 {
@@ -61,7 +59,7 @@ namespace Project.Scripts.Core
 
         public void PlayerEarnedFinish(PlayerView view)
         {
-            _service.RemovePlayerFromPool(view);
+            _service.FinishPlayer(view);
         }
     }
 }

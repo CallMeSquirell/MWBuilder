@@ -2,8 +2,10 @@
 using System.Linq;
 using System.Threading;
 using Framework.Timer;
+using Project.Scripts.Constants;
 using Project.Scripts.Core.Services;
 using Project.Scripts.Meta.Input;
+using UI.Framework.Managers;
 using Utils.Framework.Extensions;
 using Utils.Framework.Property;
 using Random = UnityEngine.Random;
@@ -12,21 +14,23 @@ namespace Project.Scripts.Core
 {
     public class PlayerService : IPlayerService
     {
+        private readonly IUIManager _uiManager;
         private IReadOnlyList<PlayerView> _players;
-        
+
         private readonly List<PlayerView> _pool = new();
         private readonly List<PlayerView> _ignorePlayer = new();
         private readonly PlayerModel _playerModel;
         private IActionTimer _actionTimer;
-        
+
         private PlayerView _currentPlayer;
         private CancellationTokenSource _cancellationTokenSource;
         public IBindableProperty<int> TimeLeft => _actionTimer.CurrentTime;
 
         public PlayerModel PlayerModel => _playerModel;
 
-        public PlayerService(IInputService inputService)
+        public PlayerService(IInputService inputService, IUIManager uiManager)
         {
+            _uiManager = uiManager;
             _playerModel = new PlayerModel(inputService);
         }
 
@@ -35,9 +39,9 @@ namespace Project.Scripts.Core
             _players = players;
             _actionTimer = actionTimer;
             _actionTimer.Subscribe(Change);
-            RefreshPool();
+            _pool.AddRange(players);
             EnableNewPlayer();
-           
+
             foreach (var playerView in _players.Where(p => !ReferenceEquals(p, _currentPlayer)))
             {
                 playerView.gameObject.SetActive(false);
@@ -54,9 +58,12 @@ namespace Project.Scripts.Core
             _actionTimer.Stop();
         }
 
-        public void RemovePlayerFromPool(PlayerView view)
+        public void FinishPlayer(PlayerView view)
         {
             _ignorePlayer.Add(view);
+            _currentPlayer.Model = null;
+            _currentPlayer = null;
+
             _actionTimer.Reset();
             Change();
         }
@@ -64,13 +71,20 @@ namespace Project.Scripts.Core
         private void RefreshPool()
         {
             _pool.Clear();
-            _pool.AddRange(_players.Except(_ignorePlayer));
-            if (_currentPlayer.NonNull())
+
+            var playerPool = new List<PlayerView>(_players.Except(_ignorePlayer));
+            var count = playerPool.Count;
+
+            for (int i = 0; i < count; i++)
             {
-                _pool.Remove(_currentPlayer);
+                var player = playerPool[Random.Range(0, playerPool.Count)];
+                playerPool.Remove(player);
+                _pool.Add(player);
             }
+
+            _pool.Remove(_currentPlayer);
         }
-        
+
         private void Change()
         {
             DisableOldPlayer();
