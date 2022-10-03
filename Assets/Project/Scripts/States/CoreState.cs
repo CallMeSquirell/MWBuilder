@@ -43,7 +43,7 @@ namespace Project.Scripts.Infrastructure.States
             _fieldModel = _instantiator.Instantiate<FieldModel>(new []{timer});
             _fieldView.Model = _fieldModel;
             
-            var players = Object.FindObjectsOfType<PlayerView>().ToList();
+            var players = Object.FindObjectOfType<PlayerHandlerView>().Players;
             _playerService.Initialize(players, timer);
             _playerService.RunTimer();
         }

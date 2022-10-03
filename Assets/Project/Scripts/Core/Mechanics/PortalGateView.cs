@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Scripts.Core
@@ -10,17 +11,21 @@ namespace Project.Scripts.Core
         
         [SerializeField] private Collider _collider;
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private GameObject _firstTypeView;
-        [SerializeField] private GameObject _secondTypeView;
+        [SerializeField] private Renderer _renderer;
+        [SerializeField] private PortalGateView _linkedPortalGate;
+        [SerializeField] private bool _ignore;
 
-        public PortalGateView LinkedPortalGate { get; private set; }
+        [SerializeField] private List<Material> _materials;
+
+        public PortalGateView LinkedPortalGate => _linkedPortalGate;
         public Transform SpawnPoint => _spawnPoint;
 
-        public void Initialize(PortalGateView linkedPortalGate, bool isFirst)
+        public bool Ignore => _ignore;
+
+        public void Initialize(PortalGateView linkedPortalGate, int isFirst)
         {
-            LinkedPortalGate = linkedPortalGate;
-            _firstTypeView.SetActive(isFirst);
-            _secondTypeView.SetActive(!isFirst);
+            _linkedPortalGate = linkedPortalGate;
+            _renderer.material = _materials[isFirst % _materials.Count];
         }
 
         private void OnTriggerEnter(Collider other)

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Core.Framework;
 using UnityEngine;
 using Utils.Framework.Extensions;
@@ -51,9 +52,8 @@ namespace Project.Scripts.Core
 
         private void OnPortalsRefreshRequired()
         {
-            var pool = new List<PortalGateView>(_gates);
-            var count = pool.Count;
-
+            var pool = new List<PortalGateView>(_gates.Where(gate => !gate.Ignore));
+            var index = 0;
             while (pool.Count > 0)
             {
                 var firstItem = PickUpRandomItem(pool);
@@ -64,8 +64,8 @@ namespace Project.Scripts.Core
                     break;
                 }
 
-                firstItem.Initialize(secondItem, true);
-                secondItem.Initialize(firstItem, false);
+                firstItem.Initialize(secondItem, index);
+                secondItem.Initialize(firstItem, index);
             }
         }
 

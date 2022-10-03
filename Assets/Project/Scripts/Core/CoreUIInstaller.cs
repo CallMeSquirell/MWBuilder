@@ -20,6 +20,7 @@ namespace Project.Scripts.Core
         {
             presenterContainer.BindView<CoreScreenView>().To<CoreScreenPresenter>();
             presenterContainer.BindView<SettingPopUpView>().To<SettingPopUpPresenter>();
+            presenterContainer.BindView<WinScreenView>().To<WinScreenPresenter>();
         }
 
         protected override void InstallServices()
