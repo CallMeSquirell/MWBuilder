@@ -1,10 +1,7 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Project.Scripts.Core.Services;
 using Utils.Framework.Property;
 
 namespace Framework.Timer
@@ -20,7 +17,7 @@ namespace Framework.Timer
         public int RequiredTime => _requiredTime;
         public IBindableProperty<int> CurrentTime => _currentTime;
 
-        public ActionTimer(int time,  int step)
+        public ActionTimer(int time, int step)
         {
             _step = step;
             _requiredTime = time;
@@ -36,7 +33,7 @@ namespace Framework.Timer
         {
             _actions.Add(action);
         }
-        
+
         public void Unsubscribe(Action action)
         {
             _actions.Remove(action);
@@ -44,8 +41,11 @@ namespace Framework.Timer
 
         public void Start()
         {
-            _cancellationTokenSource = new CancellationTokenSource();
-            UpdateLoop(_cancellationTokenSource.Token).SuppressCancellationThrow();
+            if (_cancellationTokenSource == null)
+            {
+                _cancellationTokenSource = new CancellationTokenSource();
+                UpdateLoop(_cancellationTokenSource.Token).SuppressCancellationThrow();
+            }
         }
 
         public void Stop()
@@ -53,7 +53,7 @@ namespace Framework.Timer
             _cancellationTokenSource?.Cancel();
             _cancellationTokenSource = null;
         }
-        
+
         private async UniTask UpdateLoop(CancellationToken cancellationToken)
         {
             while (true)

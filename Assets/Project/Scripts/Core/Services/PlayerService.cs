@@ -64,7 +64,7 @@ namespace Project.Scripts.Core
             {
                 return;
             }
-            
+
             _ignorePlayer.Add(view);
             _currentPlayer.Model = null;
             _currentPlayer = null;
@@ -94,7 +94,10 @@ namespace Project.Scripts.Core
                 _pool.Add(player);
             }
 
-            _pool.Remove(_currentPlayer);
+            if (_pool.Count > 1)
+            {
+                _pool.Remove(_currentPlayer);
+            }
         }
 
         private void Change()
