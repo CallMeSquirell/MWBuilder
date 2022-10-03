@@ -2,8 +2,8 @@
 {
     public static class LayersIndexes
     {
-        public const int Screen = 1;
-        public const int PopUp = 2;
-        public const int Message = 3;
+        public const int Screen = 0;
+        public const int PopUp = 1;
+        public const int Message = 2;
     }
 }
