@@ -16,7 +16,7 @@ namespace Project.Scripts.Core
         [SerializeField] private List<FinishPointView> _finishes;
 
         [SerializeField] private PortalsView _portals;
-
+        
         private CancellationTokenSource _cancellationToken;
 
         protected override void OnSetModel()
@@ -56,6 +56,7 @@ namespace Project.Scripts.Core
             }
 
             await tasks;
+            await Model.ShowDialog();
             Model.StateChangeEnded();
         }
 

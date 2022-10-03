@@ -9,5 +9,6 @@ namespace Project.Scripts.Constants
         public static IViewDefinition CoreScreen = new ViewDefinition("CoreScreen", LayersIndexes.Screen, "UI/CoreScreen");
         public static IViewDefinition Settings = new ViewDefinition("Settings", LayersIndexes.PopUp, "UI/Settings");
         public static IViewDefinition WinScreen = new ViewDefinition("WinScreen", LayersIndexes.PopUp, "UI/WinScreen");
+        public static IViewDefinition DialogBubble = new ViewDefinition("DialogBubble", LayersIndexes.Message, "UI/DialogBubble");
     }
 }
