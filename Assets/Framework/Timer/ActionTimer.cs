@@ -50,7 +50,7 @@ namespace Framework.Timer
 
         public void Stop()
         {
-            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource?.Cancel();
             _cancellationTokenSource = null;
         }
         
