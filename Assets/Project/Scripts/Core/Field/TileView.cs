@@ -9,7 +9,7 @@ namespace Project.Scripts.Core
 {
     public class TileView : MonoBehaviour
     {
-        [SerializeField] private List<TileState> _tileStates;
+        [SerializeField] private List<TileState> _tileStates = new ();
 
         [SerializeField] private Transform _root;
 
